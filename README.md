@@ -77,7 +77,21 @@ Q(分类, 难度, "题干", "选项A|选项B|选项C|选项D", 正确答案, "�
 - 解析末尾的章节号指向 `项目知识点总纲.md`，可对照阅读。
 - 所有数字均为**仿真验证**口径；题库刻意设置了“预算 ≠ 实测”“受理 ≠ 授权”“仿真 ≠ 实测”一类陷阱题。
 
-## 七、已验证
+## 七、在线部署
+
+| 项目 | 地址 |
+|---|---|
+| 公开访问（GitHub Pages） | <https://xz18078151342-ops.github.io/6g3/> |
+| Gitee 源码仓库 | <https://gitee.com/gan-di-xuan/6g3> |
+| GitHub 仓库 | <https://github.com/xz18078151342-ops/6g3> |
+
+**更新方式**：改完 `index.html` / README 后，双击 `deploy\一键部署-6g3.cmd`，脚本会比对文件哈希、增量上传到 Gitee 与 GitHub，并触发 Pages 构建、轮询到新站点生效。
+
+**令牌**：脚本从 `D:\6g\.secrets\gitee.token` 与 `D:\6g\.secrets\github.token` 读取，**不要**把令牌写进仓库或发给别人。
+
+> 说明：**Gitee Pages 已于 2024 年停止服务**（官方功能页已下线），所以公开访问由 GitHub Pages 托管；Gitee 侧保留完整源码与提交记录。Gitee 仓库当前为私有仓库，完成账号 2FA（或绑定 GitHub/微信等第三方账号）后，可执行 `deploy-6g3.ps1 -TryPublicGitee` 或在仓库设置里改为公开。
+
+## 八、已验证
 
 在 Edge 无头浏览器（1280×1500 与 390×880 两种视口）实测通过：
 

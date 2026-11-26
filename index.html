@@ -1,0 +1,1157 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>数字护栏 · 答辩知识自测</title>
+<meta name="description" content="低空航路数字护栏项目答辩题库：分类单选/多选、标准答案、逐题解析、错题本与速查表。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230a1020'/><path d='M6 21h20M9 21l3-9 4 5 3-7 4 11' stroke='%2335e0d0' stroke-width='2.2' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+<style>
+:root{
+  --bg:#070b14; --bg2:#0a1120; --panel:rgba(17,25,42,.72); --panel2:rgba(22,32,54,.6);
+  --line:rgba(120,160,220,.16); --line2:rgba(120,160,220,.28);
+  --text:#e9effb; --muted:#95a6c4; --dim:#6b7c9c;
+  --cyan:#35e0d0; --blue:#4d8dff; --violet:#9d7bff; --pink:#ff7ab6;
+  --green:#3ddc97; --red:#ff6b7a; --amber:#ffb454;
+  --radius:16px; --shadow:0 18px 50px rgba(0,0,0,.45);
+  --mono:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{
+  margin:0; color:var(--text); background:var(--bg);
+  font:15px/1.65 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Segoe UI",Roboto,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  background-image:
+    radial-gradient(900px 500px at 15% -5%, rgba(77,141,255,.18), transparent 60%),
+    radial-gradient(800px 460px at 88% 4%, rgba(53,224,208,.14), transparent 62%),
+    radial-gradient(700px 500px at 50% 110%, rgba(157,123,255,.10), transparent 60%),
+    linear-gradient(180deg,#070b14 0%,#080e1a 40%,#070b14 100%);
+  background-attachment:fixed;
+}
+body::before{
+  content:""; position:fixed; inset:0; pointer-events:none; opacity:.35; z-index:0;
+  background-image:linear-gradient(rgba(120,160,220,.06) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(120,160,220,.06) 1px,transparent 1px);
+  background-size:64px 64px;
+  mask-image:radial-gradient(ellipse at 50% 0%,#000 20%,transparent 78%);
+}
+a{color:var(--cyan);text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer}
+.wrap{position:relative;z-index:1;max-width:1040px;margin:0 auto;padding:0 20px}
+
+/* ---------- header ---------- */
+.site-header{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);
+  background:rgba(7,11,20,.78);border-bottom:1px solid var(--line)}
+.header-in{max-width:1040px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;color:var(--text)}
+.brand svg{width:34px;height:34px;flex:none}
+.brand b{display:block;font-size:15px;letter-spacing:.04em}
+.brand i{display:block;font-style:normal;font-size:11px;color:var(--muted);letter-spacing:.08em}
+.nav{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
+.tab{border:1px solid transparent;background:transparent;color:var(--muted);padding:7px 13px;border-radius:999px;font-size:13.5px;transition:.18s}
+.tab:hover{color:var(--text);background:rgba(120,160,220,.08)}
+.tab.on{color:#08121a;background:linear-gradient(135deg,var(--cyan),#6ee7ff);border-color:transparent;font-weight:700}
+.badge{font-size:11.5px;color:var(--cyan);border:1px solid rgba(53,224,208,.35);background:rgba(53,224,208,.08);
+  padding:4px 9px;border-radius:999px;white-space:nowrap}
+
+/* ---------- layout ---------- */
+main{padding:26px 0 60px}
+.view{display:none;animation:fade .25s ease}
+.view.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.hero{padding:26px 0 8px}
+.eyebrow{color:var(--cyan);font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;margin:0 0 10px}
+h1{font-size:clamp(30px,5vw,46px);line-height:1.15;margin:0 0 10px;letter-spacing:.01em;text-wrap:balance}
+h1 .grad{background:linear-gradient(100deg,#fff 0%,#9fe9ff 45%,#35e0d0 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:var(--muted);max-width:640px;margin:0 0 18px;font-size:14.5px}
+.kpis{display:flex;gap:22px;flex-wrap:wrap;margin:18px 0 4px}
+.kpi b{font-family:var(--mono);font-size:21px;color:var(--cyan);display:block;line-height:1.2}
+.kpi span{font-size:11.5px;color:var(--dim);letter-spacing:.06em}
+
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px 22px;box-shadow:var(--shadow);backdrop-filter:blur(10px)}
+.card + .card{margin-top:16px}
+.card h2{font-size:15px;margin:0 0 4px;letter-spacing:.02em}
+.card .sub{color:var(--dim);font-size:12.5px;margin:0 0 14px}
+
+.field{margin:0 0 18px}
+.field:last-child{margin-bottom:0}
+.field-label{font-size:12px;color:var(--muted);letter-spacing:.08em;margin:0 0 9px;display:flex;align-items:center;gap:8px}
+.field-label em{font-style:normal;color:var(--dim);font-size:11px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{border:1px solid var(--line2);background:rgba(255,255,255,.02);color:var(--muted);
+  padding:6px 12px;border-radius:999px;font-size:13px;transition:.16s;display:inline-flex;align-items:center;gap:6px}
+.chip:hover{border-color:rgba(53,224,208,.5);color:var(--text)}
+.chip.on{background:rgba(53,224,208,.12);border-color:rgba(53,224,208,.6);color:#d8fffb}
+.chip .n{font-family:var(--mono);font-size:11px;color:var(--dim)}
+.chip.on .n{color:rgba(216,255,251,.7)}
+.chip .dotc{width:7px;height:7px;border-radius:50%;background:var(--c,#35e0d0)}
+.start-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:20px;padding-top:18px;border-top:1px dashed var(--line)}
+.btn{border:1px solid var(--line2);background:rgba(255,255,255,.03);color:var(--text);
+  padding:10px 18px;border-radius:11px;font-size:14px;transition:.16s;display:inline-flex;align-items:center;gap:8px}
+.btn:hover{background:rgba(255,255,255,.07);border-color:var(--line2)}
+.btn.primary{background:linear-gradient(135deg,var(--cyan),#5ad1ff);border:none;color:#06131b;font-weight:700;
+  box-shadow:0 8px 24px rgba(53,224,208,.25)}
+.btn.primary:hover{filter:brightness(1.06)}
+.btn.ghost{background:transparent}
+.btn:disabled{opacity:.42;cursor:not-allowed;box-shadow:none}
+.btn.sm{padding:6px 12px;font-size:12.5px;border-radius:9px}
+.hint{font-size:12px;color:var(--dim)}
+
+/* ---------- quiz ---------- */
+.quiz-top{display:flex;align-items:center;gap:14px;margin:6px 0 14px;flex-wrap:wrap}
+.quiz-top .qcount{font-family:var(--mono);font-size:13px;color:var(--muted)}
+.quiz-top .qcount b{color:var(--text);font-size:18px}
+.quiz-top .spacer{flex:1}
+.meter{height:6px;border-radius:99px;background:rgba(255,255,255,.07);overflow:hidden;flex:1 1 220px;min-width:140px}
+.meter i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--blue));transition:width .3s}
+.timer{font-family:var(--mono);font-size:12.5px;color:var(--dim);white-space:nowrap}
+.score-live{font-family:var(--mono);font-size:12.5px;color:var(--green);white-space:nowrap}
+
+.qcard{position:relative;padding:26px 26px 18px;overflow:hidden}
+.qcard::after{content:"";position:absolute;inset:0 0 auto;height:2px;
+  background:linear-gradient(90deg,transparent,var(--cyan),transparent);opacity:.5}
+.qmeta{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+.pill{font-size:11.5px;padding:3px 9px;border-radius:999px;border:1px solid var(--line2);color:var(--muted)}
+.pill.cat{color:var(--c,#35e0d0);border-color:color-mix(in srgb,var(--c,#35e0d0) 45%,transparent);
+  background:color-mix(in srgb,var(--c,#35e0d0) 10%,transparent)}
+.pill.d1{color:var(--green);border-color:rgba(61,220,151,.35)}
+.pill.d2{color:var(--amber);border-color:rgba(255,180,84,.35)}
+.pill.d3{color:var(--red);border-color:rgba(255,107,122,.35)}
+.pill.multi{color:var(--violet);border-color:rgba(157,123,255,.4)}
+.qtext{font-size:clamp(17px,2.4vw,20px);line-height:1.6;margin:0 0 18px;font-weight:600;letter-spacing:.01em}
+.opts{display:grid;gap:9px}
+.opt{display:flex;gap:12px;align-items:flex-start;text-align:left;width:100%;
+  border:1px solid var(--line);background:rgba(255,255,255,.02);border-radius:12px;
+  padding:12px 14px;transition:.14s;line-height:1.55}
+.opt:hover:not(.locked){border-color:rgba(53,224,208,.45);background:rgba(53,224,208,.05)}
+.opt .k{flex:none;width:24px;height:24px;border-radius:7px;border:1px solid var(--line2);
+  display:grid;place-items:center;font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-top:1px}
+.opt .t{flex:1;font-size:14.5px}
+.opt.sel{border-color:rgba(53,224,208,.65);background:rgba(53,224,208,.10)}
+.opt.sel .k{background:var(--cyan);color:#06131b;border-color:var(--cyan);font-weight:700}
+.opt.correct{border-color:rgba(61,220,151,.7);background:rgba(61,220,151,.10)}
+.opt.correct .k{background:var(--green);color:#04140c;border-color:var(--green);font-weight:700}
+.opt.wrong{border-color:rgba(255,107,122,.7);background:rgba(255,107,122,.09)}
+.opt.wrong .k{background:var(--red);color:#1b0508;border-color:var(--red);font-weight:700}
+.opt.locked{cursor:default}
+.qactions{display:flex;gap:10px;align-items:center;margin-top:18px;flex-wrap:wrap}
+.qactions .hint{margin-left:auto}
+
+.feedback{margin-top:4px;border-radius:13px;border:1px solid var(--line);padding:14px 16px;display:none}
+.feedback.on{display:block;animation:fade .2s}
+.feedback.ok{border-color:rgba(61,220,151,.4);background:rgba(61,220,151,.07)}
+.feedback.no{border-color:rgba(255,107,122,.4);background:rgba(255,107,122,.06)}
+.fb-head{display:flex;align-items:center;gap:10px;font-weight:700;margin-bottom:6px}
+.feedback.ok .fb-head{color:var(--green)}
+.feedback.no .fb-head{color:var(--red)}
+.fb-ans{font-size:12.5px;color:var(--muted);font-family:var(--mono)}
+.fb-exp{font-size:13.5px;color:#cdd9ee;margin:6px 0 0}
+.fb-ref{font-size:11.5px;color:var(--dim);margin-top:8px}
+
+/* ---------- result ---------- */
+.result-head{display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+.ring{--p:0;width:132px;height:132px;border-radius:50%;flex:none;position:relative;
+  background:conic-gradient(var(--cyan) calc(var(--p)*1%),rgba(255,255,255,.07) 0);
+  display:grid;place-items:center;transition:.6s}
+.ring::before{content:"";position:absolute;inset:9px;border-radius:50%;background:#0b1220}
+.ring-in{position:relative;text-align:center;line-height:1.1}
+.ring-in b{font-family:var(--mono);font-size:34px;color:#fff}
+.ring-in span{display:block;font-size:11px;color:var(--dim);letter-spacing:.1em;margin-top:3px}
+.result-copy h2{margin:0 0 6px;font-size:22px}
+.result-copy p{margin:0;color:var(--muted);font-size:14px}
+.catbars{margin-top:20px;display:grid;gap:10px}
+.catbar{display:grid;grid-template-columns:118px 1fr 112px;gap:12px;align-items:center;font-size:12.5px}
+.catbar .nm{color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.catbar .tr{height:8px;border-radius:99px;background:rgba(255,255,255,.06);overflow:hidden}
+.catbar .tr i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--c,#35e0d0),rgba(255,255,255,.5));width:0;transition:.5s}
+.catbar .vl{font-family:var(--mono);color:var(--muted);text-align:right;white-space:nowrap;font-size:12px}
+
+.wrong-list{display:grid;gap:12px;margin-top:14px}
+.wq{border:1px solid var(--line);border-radius:13px;padding:14px 16px;background:rgba(255,255,255,.015)}
+.wq .stem{font-size:14px;margin:0 0 8px;font-weight:600}
+.wq .meta{font-size:11.5px;color:var(--dim);margin-bottom:8px;display:flex;gap:8px;flex-wrap:wrap}
+.wq .ans{font-size:12.5px;color:var(--green);margin:0 0 4px}
+.wq .exp{font-size:12.5px;color:var(--muted);margin:0}
+.empty{text-align:center;color:var(--dim);padding:34px 10px;font-size:13.5px}
+
+/* ---------- cheat / tables ---------- */
+.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;font-size:13px;min-width:520px}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:rgba(120,160,220,.07);color:var(--muted);font-weight:600;font-size:12px;letter-spacing:.04em;white-space:nowrap}
+tr:last-child td{border-bottom:none}
+td.mono,.mono{font-family:var(--mono);font-size:12.5px;color:#d9e6ff}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.formula{border:1px solid var(--line);border-radius:12px;padding:13px 15px;background:rgba(255,255,255,.015)}
+.formula b{display:block;font-size:12px;color:var(--cyan);letter-spacing:.06em;margin-bottom:6px;font-weight:600}
+.formula code{font-family:var(--mono);font-size:12.5px;color:#e6eeff;white-space:pre-wrap;display:block;line-height:1.7}
+.formula p{margin:6px 0 0;font-size:12px;color:var(--dim)}
+.note{border-left:2px solid var(--amber);padding:8px 12px;background:rgba(255,180,84,.06);border-radius:0 8px 8px 0;font-size:12.5px;color:#e8d6b6;margin:12px 0 0}
+ul.tight{margin:8px 0 0;padding-left:20px;font-size:13px;color:var(--muted)}
+ul.tight li{margin:4px 0}
+kbd{font-family:var(--mono);font-size:11px;border:1px solid var(--line2);border-bottom-width:2px;border-radius:5px;padding:1px 5px;color:var(--muted);background:rgba(255,255,255,.04)}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);padding:18px 0 30px;color:var(--dim);font-size:12px}
+footer .wrap{display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+
+@media (max-width:720px){
+  .header-in{padding:8px 14px;gap:8px;flex-wrap:wrap}
+  .brand i{display:none}
+  .nav{margin-left:0;width:100%;justify-content:space-between;gap:2px}
+  .tab{padding:6px 9px;font-size:12.5px}
+  .badge{display:none}
+  .wrap{padding:0 14px}
+  .qcard{padding:20px 16px 14px}
+  .grid2{grid-template-columns:1fr}
+  .catbar{grid-template-columns:84px 1fr 92px;gap:8px}
+  .result-head{gap:16px}
+  .ring{width:108px;height:108px}
+  .ring-in b{font-size:27px}
+  .qactions .hint{display:none}
+  h1{font-size:27px}
+  .quiz-top{gap:8px}
+  .quiz-top .meter{order:6;flex-basis:100%}
+  .quiz-top .timer{margin-left:auto}
+}
+@media print{
+  .site-header,.nav,.qactions,footer,.hero .btn{display:none}
+  body{background:#fff;color:#000}
+  .card{box-shadow:none;border-color:#ccc;background:#fff}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-in">
+    <a class="brand" href="#" onclick="go('setup');return false">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#35e0d0"/><stop offset="1" stop-color="#4d8dff"/></linearGradient></defs>
+        <rect x="1" y="1" width="38" height="38" rx="11" fill="none" stroke="url(#bg1)" stroke-width="1.4" opacity=".55"/>
+        <path d="M8 26h24M11 26l3.4-10 4 5.6 3.6-8 4.4 12.4" fill="none" stroke="url(#bg1)" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span><b>数字护栏 · 答辩自测</b><i id="brandSub">ISAC × AI</i></span>
+    </a>
+    <nav class="nav">
+      <button class="tab on" data-view="setup" onclick="go('setup')">练习</button>
+      <button class="tab" data-view="cheat" onclick="go('cheat')">速查</button>
+      <button class="tab" data-view="wrong" onclick="go('wrong')">错题本<span id="wrongN"></span></button>
+      <button class="tab" data-view="stats" onclick="go('stats')">统计</button>
+      <button class="tab" data-view="about" onclick="go('about')">说明</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ================= 练习设置 ================= -->
+  <section class="view on" id="view-setup">
+    <div class="hero">
+      <p class="eyebrow">Defense Prep · 知识自测</p>
+      <h1>把每个数字，<span class="grad">练成条件反射</span></h1>
+      <p class="lead">覆盖「低空航路数字护栏」全部专业知识点：场景与需求、6G/ISAC、空口波形、感知处理、信道几何、定位融合、AI、冲突消解、资源算力、工程合规、数字口径。每题附标准答案与解析，答错自动进错题本。</p>
+      <div class="kpis">
+        <div class="kpi"><b id="kTotal">—</b><span>题库总量</span></div>
+        <div class="kpi"><b>11</b><span>知识分类</span></div>
+        <div class="kpi"><b id="kTry">0</b><span>累计答题</span></div>
+        <div class="kpi"><b id="kBest">—</b><span>历史最佳</span></div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:10px">
+      <h2>选择练习范围</h2>
+      <p class="sub">点选分类（可多选）；不选等于全选。</p>
+
+      <div class="field">
+        <div class="field-label">知识分类 <em id="catAll"></em></div>
+        <div class="chips" id="catChips"></div>
+      </div>
+
+      <div class="field">
+        <div class="field-label">难度</div>
+        <div class="chips" id="diffChips">
+          <button class="chip on" data-diff="0">全部</button>
+          <button class="chip" data-diff="1">基础 · 必答</button>
+          <button class="chip" data-diff="2">进阶 · 辨析</button>
+          <button class="chip" data-diff="3">陷阱 · 口径</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="field-label">题量</div>
+        <div class="chips" id="countChips">
+          <button class="chip" data-count="10">10 题 · 热身</button>
+          <button class="chip on" data-count="20">20 题 · 常规</button>
+          <button class="chip" data-count="30">30 题 · 模拟</button>
+          <button class="chip" data-count="50">50 题 · 强化</button>
+          <button class="chip" data-count="0">全部 · 马拉松</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="field-label">模式</div>
+        <div class="chips" id="modeChips">
+          <button class="chip on" data-opt="shuffle">随机顺序</button>
+          <button class="chip on" data-opt="instant">答完即判</button>
+        </div>
+      </div>
+
+      <div class="start-row">
+        <button class="btn primary" onclick="startQuiz()">开始练习 →</button>
+        <button class="btn ghost" onclick="startQuiz('wrong')">重练错题</button>
+        <button class="btn ghost" onclick="startQuiz('weak')">专攻薄弱</button>
+        <span class="hint" id="poolHint"></span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>三条使用建议</h2>
+      <ul class="tight">
+        <li><b>先刷「陷阱 · 口径」</b>：这 30 多题对应答辩最容易被抓的地方（预算 ≠ 实测、受理 ≠ 授权、17.3 万点怎么来的）。</li>
+        <li><b>答错的题不要只看答案</b>：点解析末尾的章节号，回到《项目知识点总纲》对应小节读一遍，再回来重做。</li>
+        <li><b>考前 10 分钟</b>：开「全部 · 仅答完即判」快速过一遍，或只看「速查」里的数字表。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= 答题 ================= -->
+  <section class="view" id="view-quiz">
+    <div class="quiz-top">
+      <div class="qcount"><b id="qNow">1</b> / <span id="qAll">20</span></div>
+      <div class="meter"><i id="qMeter"></i></div>
+      <div class="score-live" id="qScore">✓ 0</div>
+      <div class="timer" id="qTimer">00:00</div>
+      <button class="btn sm ghost" onclick="quitQuiz()">退出</button>
+    </div>
+
+    <div class="card qcard">
+      <div class="qmeta" id="qMeta"></div>
+      <p class="qtext" id="qText"></p>
+      <div class="opts" id="qOpts"></div>
+      <div class="qactions">
+        <button class="btn primary" id="btnSubmit" onclick="submitAnswer()">提交答案</button>
+        <button class="btn" id="btnNext" style="display:none" onclick="nextQuestion()">下一题 →</button>
+        <span class="hint">键盘：<kbd>1</kbd>–<kbd>4</kbd> 选择 · <kbd>Enter</kbd> 提交/下一题</span>
+      </div>
+      <div class="feedback" id="feedback"></div>
+    </div>
+  </section>
+
+  <!-- ================= 结果 ================= -->
+  <section class="view" id="view-result">
+    <div class="card">
+      <div class="result-head">
+        <div class="ring" id="ring"><div class="ring-in"><b id="ringScore">0</b><span>SCORE</span></div></div>
+        <div class="result-copy">
+          <h2 id="resTitle">练习完成</h2>
+          <p id="resSub"></p>
+        </div>
+      </div>
+      <div class="catbars" id="resCats"></div>
+      <div class="qactions" style="margin-top:22px">
+        <button class="btn primary" onclick="startQuiz()">再来一轮</button>
+        <button class="btn" onclick="startQuiz('last')">只练这次的错题</button>
+        <button class="btn ghost" onclick="go('setup')">返回设置</button>
+      </div>
+    </div>
+    <div class="card">
+      <h2>逐题复盘 <span class="hint" id="resWrongN"></span></h2>
+      <div class="wrong-list" id="resWrong"></div>
+    </div>
+  </section>
+
+  <!-- ================= 速查 ================= -->
+  <section class="view" id="view-cheat">
+    <div class="hero" style="padding-bottom:0">
+      <p class="eyebrow">Cheat Sheet · 考前 10 分钟</p>
+      <h1 style="font-size:clamp(26px,4vw,36px)">数字、公式、<span class="grad">易混点</span></h1>
+      <p class="lead">与《项目知识点总纲》第 11–13 章同源。数字都能在 <span class="mono">results.json</span> 或代码里定位。</p>
+    </div>
+
+    <div class="card">
+      <h2>核心数字（问就答这个）</h2>
+      <div class="table-wrap"><table>
+        <tr><th>数字</th><th>含义</th><th>怎么来的 / 注意</th></tr>
+        <tr><td class="mono">30.5 → 10.3 m</td><td>CEP95：纯 GNSS → 本文方案</td><td>降 66.2%；中间方案 B 为 12.8 m</td></tr>
+        <tr><td class="mono">29.2 dB</td><td>MTI 对杂波峰值的抑制量</td><td>杂波/目标 30 dB 时实测于仿真</td></tr>
+        <tr><td class="mono">±1.17 m/s</td><td>MTI 速度盲区</td><td>= Δv = λ/(2·CPI)</td></tr>
+        <tr><td class="mono">502 m / 3.2 km</td><td>杂波受限 / 热噪声受限作用距离</td><td>差 6.3 倍 → 瓶颈是杂波</td></tr>
+        <tr><td class="mono">99.7%</td><td>非视距识别准确率</td><td>仿真分布内；n=23250，正例 10878</td></tr>
+        <tr><td class="mono">1.50 m / 1.17 m/s</td><td>距离分辨率 / 速度栅格</td><td>c/(2B) 与 λ/(2·CPI)</td></tr>
+        <tr><td class="mono">63.0 dB</td><td>相参积累增益</td><td>10log10(B·T)=10log10(1.999e6)</td></tr>
+        <tr><td class="mono">25%</td><td>推荐感知资源占比 ρ</td><td>Pd≥0.9 ∩ 吞吐损失≤25%</td></tr>
+        <tr><td class="mono">27.3 ms</td><td>端到端时延<strong>预算</strong></td><td>不是实测！实测 228.4 ms ÷ 40 折算</td></tr>
+        <tr><td class="mono">1.62 s</td><td>冲突告警平均提前量</td><td>KPI 要 ≥3 s，<strong>未达标</strong></td></tr>
+        <tr><td class="mono">11.9%</td><td>告警误报率</td><td>59 次告警 7 次误报；P4 目标 ≤5%</td></tr>
+        <tr><td class="mono">5762 / 7198</td><td>NLOSNet / TrajNet 参数量</td><td>2881×2；16→64→64→30</td></tr>
+        <tr><td class="mono">172 872</td><td>航迹点总数</td><td>12 组 × 6 机 × 2401 点</td></tr>
+        <tr><td class="mono">12 / 175 m / ±120 m</td><td>站数 / 站间距 / 横向偏移</td><td>挂高 60 m，航路 2 km</td></tr>
+        <tr><td class="mono">0.26 GMAC → 26 GFLOPS</td><td>每 CPI 运算量 / 20 ms 所需算力</td><td>实测仅 2.28 GFLOPS</td></tr>
+      </table></div>
+    </div>
+
+    <div class="card">
+      <h2>六个必背公式</h2>
+      <div class="grid2">
+        <div class="formula"><b>距离栅格 / 分辨率</b><code>Δr = c/(2·f_s) = 1.22 m
+ρ_r = c/(2·B_occ) = 1.50 m</code><p>栅格看采样带宽，分辨率看占用带宽。</p></div>
+        <div class="formula"><b>速度栅格</b><code>Δv = λ/(2·CPI) = 1.17 m/s
+λ = c/f_c = 4.6875 cm</code><p>CPI 越长越细，但目标走动越厉害。</p></div>
+        <div class="formula"><b>Swerling-1 检测</b><code>Pd = Pfa^(1/(1+SIR))
+Pd=0.9, Pfa=1e-4 → SIR=19.4 dB</code><p>起伏目标，RCS 会闪。</p></div>
+        <div class="formula"><b>雷达方程</b><code>SNR = Pt·G²·λ²·σ / ((4π)³R⁴·kTB·F·L)</code><p>R⁻⁴：距离翻倍，功率要 ×16。</p></div>
+        <div class="formula"><b>CRLB</b><code>σ_R ≥ c/(2·B·√(2·SNR))
+σ_v ≥ λ/(2·CPI·√(2·SNR))</code><p>物理下界，不是算法水平。</p></div>
+        <div class="formula"><b>精度 → 间隔</b><code>σ ≈ CEP95/2.45；间隔 ≈ 3σ
+10.3 m → σ≈4.2 m → 间隔≈12.6 m（取 30 m）</code><p>精度是容量的前置条件。</p></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>易混对照（20 组）</h2>
+      <div class="table-wrap"><table>
+        <tr><th>A</th><th>B</th><th>一句话区别</th></tr>
+        <tr><td>栅格</td><td>分辨率</td><td>刻度密度 vs 能否分开（采样带宽 vs 占用带宽）</td></tr>
+        <tr><td>SNR</td><td>SIR</td><td>分母是热噪声 vs 杂波；本项目瓶颈是后者</td></tr>
+        <tr><td>Pd</td><td>Pfa</td><td>有目标喊有 vs 没目标喊有</td></tr>
+        <tr><td>检测</td><td>估计</td><td>有没有（CFAR） vs 是多少（插值/CRLB）</td></tr>
+        <tr><td>MTI</td><td>MTD</td><td>对消（去零速） vs 滤波器组（分通道）</td></tr>
+        <tr><td>单站</td><td>多站相参</td><td>独立测 vs ns 级相位同步；本项目做数据级融合</td></tr>
+        <tr><td>LOS</td><td>NLOS</td><td>直射无遮挡 vs 绕射/反射（测距只偏大）</td></tr>
+        <tr><td>精度</td><td>准确度</td><td>离散程度 vs 系统偏差</td></tr>
+        <tr><td>CEP95</td><td>RMSE</td><td>95% 分位（抗尾） vs 均方根（敏感尾）</td></tr>
+        <tr><td>均值</td><td>中位数</td><td>被 outliers 拉走 vs 稳</td></tr>
+        <tr><td>TOPS</td><td>GFLOPS</td><td>INT8 神经网络 vs 浮点通用</td></tr>
+        <tr><td>时延</td><td>吞吐</td><td>单次多久 vs 单位时间多少</td></tr>
+        <tr><td>带宽</td><td>采样率</td><td>100 MHz 标称 vs 122.88 MHz 时钟</td></tr>
+        <tr><td>CPI</td><td>帧</td><td>相参积累 20 ms vs 协议调度 10 ms</td></tr>
+        <tr><td>仿真</td><td>实测</td><td>全模型 vs 外场；本项目是仿真</td></tr>
+        <tr><td>TRL</td><td>专利状态</td><td>技术成熟度 vs 法律状态</td></tr>
+        <tr><td>受理</td><td>授权</td><td>材料合格进审查 vs 审查通过获权</td></tr>
+        <tr><td>定位</td><td>跟踪</td><td>此刻在哪 vs 连续估计（滤波）</td></tr>
+        <tr><td>提前量</td><td>预测窗</td><td>喊到最近接近 vs 能看多远；前者受后者上限约束</td></tr>
+        <tr><td>过拟合</td><td>域偏移</td><td>模型太复杂 vs 训练/部署分布不同</td></tr>
+      </table></div>
+    </div>
+
+    <div class="card">
+      <h2>答辩前必查的 6 条口径</h2>
+      <ul class="tight">
+        <li><b>17.3 万点</b>：12 组 × 6 机 × 240 s，不是方案表 7 的 20 组 × 300 s。</li>
+        <li><b>27.3 ms 是预算</b>：实测 228.4 ms，40× 是工程假设，三处材料都标了“折算”。</li>
+        <li><b>99.7% 是分布内</b>：真实有域偏移；AI 失效下限 12.8 m。</li>
+        <li><b>K7 未达标</b>：1.62 s vs 3 s，受 1.5 s 预测窗限制。</li>
+        <li><b>“重叠 40%”不自洽</b>：175 m 间距 + 500 m 半径实际约 78%。</li>
+        <li><b>受理 ≠ 授权，证明 ≠ 商用，仿真 ≠ 实测</b>。</li>
+      </ul>
+      <div class="note">答不上来时用三句式：先给边界 → 再给可验证依据 → 最后给验收门槛。</div>
+    </div>
+  </section>
+
+  <!-- ================= 错题本 ================= -->
+  <section class="view" id="view-wrong">
+    <div class="hero" style="padding-bottom:0">
+      <p class="eyebrow">Review · 错题本</p>
+      <h1 style="font-size:clamp(26px,4vw,36px)">错过的，<span class="grad">才是要背的</span></h1>
+      <p class="lead" id="wrongLead">这里保存你答错过的题（同一浏览器有效）。建议每题读完解析后，用自己的话复述一遍。</p>
+    </div>
+    <div class="card">
+      <div class="qactions" style="margin:0 0 14px">
+        <button class="btn primary" onclick="startQuiz('wrong')">开始重练</button>
+        <button class="btn ghost" onclick="clearWrong()">清空错题</button>
+        <span class="hint" id="wrongCount"></span>
+      </div>
+      <div class="wrong-list" id="wrongList"></div>
+    </div>
+  </section>
+
+  <!-- ================= 统计 ================= -->
+  <section class="view" id="view-stats">
+    <div class="hero" style="padding-bottom:0">
+      <p class="eyebrow">Progress · 练习统计</p>
+      <h1 style="font-size:clamp(26px,4vw,36px)">你练到<span class="grad">哪一步了</span></h1>
+    </div>
+    <div class="card">
+      <h2>总览</h2>
+      <div class="kpis" style="margin:8px 0 0">
+        <div class="kpi"><b id="stRuns">0</b><span>练习次数</span></div>
+        <div class="kpi"><b id="stQ">0</b><span>累计答题</span></div>
+        <div class="kpi"><b id="stAcc">—</b><span>总正确率</span></div>
+        <div class="kpi"><b id="stBest">—</b><span>最佳单轮</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <h2>分类正确率</h2>
+      <p class="sub">样本少于 5 题的分类仅供参考。</p>
+      <div class="catbars" id="stCats"></div>
+    </div>
+    <div class="card">
+      <h2>最近练习</h2>
+      <div class="table-wrap"><table id="stTable">
+        <tr><th>时间</th><th>题量</th><th>正确</th><th>正确率</th><th>用时</th></tr>
+      </table></div>
+      <div class="qactions"><button class="btn ghost sm" onclick="resetStats()">清空统计</button></div>
+    </div>
+  </section>
+
+  <!-- ================= 说明 ================= -->
+  <section class="view" id="view-about">
+    <div class="hero" style="padding-bottom:0">
+      <p class="eyebrow">About · 使用说明</p>
+      <h1 style="font-size:clamp(26px,4vw,36px)">题库从<span class="grad">哪来</span></h1>
+    </div>
+    <div class="card">
+      <h2>题源与口径</h2>
+      <p class="sub">所有题目由项目材料反向命题，答案以代码与 results.json 为准。</p>
+      <ul class="tight">
+        <li><b>方案</b>：<span class="mono">参赛作品/02_作品方案_场景设计.docx</span>（场景、KPI、架构、五阶段）</li>
+        <li><b>代码</b>：<span class="mono">参赛作品/06_代码/sim/*.py</span>（config / scenario / isac / ai / tracking / run_all）</li>
+        <li><b>数字</b>：<span class="mono">results/results.json</span>（CEP95、MTI、NLOSNet、时延等）</li>
+        <li><b>口径</b>：<span class="mono">08_5分钟路演稿与答辩手册.md</span>、<span class="mono">00_提交清单与操作指南.md</span></li>
+        <li><b>索引</b>：<span class="mono">项目知识点总纲.md</span>（题目解析末尾的章节号指向它）</li>
+      </ul>
+      <div class="note">本题库用于赛前自测，不替代对代码与方案原文的阅读。凡是“仿真 / 预算 / 折算 / 受理”这类限定词，答题与答辩时都不要省。</div>
+    </div>
+    <div class="card">
+      <h2>操作</h2>
+      <ul class="tight">
+        <li>答题时按 <kbd>1</kbd>–<kbd>4</kbd> 选选项，<kbd>Enter</kbd> 提交 / 下一题，<kbd>Esc</kbd> 退出。</li>
+        <li>多选题需选全对才算对；选项前字母是标准答案的标识。</li>
+        <li>错题、统计、设置都存在本浏览器 localStorage，换浏览器/清缓存会丢。</li>
+        <li>“专攻薄弱”会优先抽你历史正确率最低的分类（样本不足时随机）。</li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>低空航路数字护栏 · 答辩知识自测 · 全部结论为仿真验证</span>
+    <span class="mono" id="footCount">SEED 20261113</span>
+  </div>
+</footer>
+
+<script>
+/* ================= 数据 ================= */
+function Q(c,d,q,o,a,e,ref){return {c:c,d:d,q:q,o:o.split("|"),a:(typeof a==="string"?a.split(",").map(Number):[a]),e:e,ref:ref};}
+const RAW = [
+Q("scene",1,"本项目开场用来点明核心痛点的一组数字是？","30 m 定位误差 与 30 m 安全间隔|10 m 与 60 m|100 m 与 120 m|500 m 与 2 km",0,"城市峡谷 GNSS 水平误差约 30 m，而现行安全间隔也要 30 m；各带 30 m 误差去保持 30 m 距离，数学上无解。","14"),
+Q("scene",1,"按《无人驾驶航空器飞行管理暂行条例》，适飞空域通常指真高多少米以下？","120 m|100 m|300 m|600 m",0,"条例（国务院、中央军委令第 761 号）划定真高 120 m 以下为适飞空域。","1.2"),
+Q("scene",1,"本方案无人机的典型巡航高度是？","100 m|60 m|120 m|200 m",0,"100 m 落在真高 120 m 的适飞空域内，与监管边界对齐。","1.2"),
+Q("scene",2,"四类痛点中，被本方案视为“根因”的是？","位置不可信与目标看不见|态势不连续与决策不及时|成本高与审批慢|频谱不足与站址稀缺",0,"位置不可信、目标看不见是根因；态势不连续、决策不及时是表现。所以先解决“看得见、看得准”。","1.4"),
+Q("scene",1,"下列哪种手段对“黑飞/非合作目标”完全失效？","ADS-B|通感一体化|专用低空雷达|机载视觉",0,"ADS-B 依赖机载应答机，只对合作目标有效；黑飞目标不广播。","1.5"),
+Q("scene",1,"机载视觉/毫米波的感知半径量级是？","不足 200 m|不足 2 km|不足 20 m|不足 500 m",0,"只能“自保”，无法为航路提供第三方监视，这是航路级保障的第一个缺口。","1.5"),
+Q("scene",2,"八项 KPI 中，仿真结果未达标的是哪一项？","K7 冲突告警提前量（1.62 s < 3 s）|K1 定位精度|K4 杂波抑制|K5 非视距识别",0,"K1、K4、K5 均达标；K7 实测 1.62 s，目标 ≥3 s，受 1.5 s 预测窗限制。","1.6"),
+Q("scene",1,"K2“单站可靠感知距离”的目标值是？","≥400 m（视距）|≥100 m|≥1 km|≥3 km",0,"目标 ≥400 m，仿真达成 502 m（Pd=0.9、Pfa=1e-4）。","1.6"),
+Q("scene",2,"P1 阶段的放行门槛不包括下列哪一项？","CEP95 ≤ 8 m|测距 RMSE ≤ 1 m|测速 RMSE ≤ 1 m/s|单 CPI 处理 ≤ 20 ms",0,"CEP95 ≤ 8 m 是 P2 两站联试的门槛；P1 是单站标定。","1.7"),
+Q("scene",2,"P2 阶段的门槛是？","两站联试 CEP95 ≤ 8 m|12 站覆盖率 ≥99%|虚警率 ≤5%|测距 RMSE ≤1 m",0,"P2 验证真实多径下的非视距补偿，门槛 CEP95 ≤8 m；覆盖率是 P3，虚警率是 P4。","1.7"),
+Q("scene",1,"三种可复制形态是？","园区、港口、海岛/山区|城市、乡村、高速|物流、巡检、载人|东部、中部、西部",0,"复用度分别约 90%、80%、70%，换场景只换站址排布与先验参数，不换架构。","1.8"),
+Q("scene",2,"为什么本作品选择“场景设计”而不是“创新产品”赛道？","场景设计的落地性允许“验证计划 + 预期指标”，创新产品要求实测与自主知识产权|场景设计奖金更高|创新产品不允许学生参加|场景设计不需要提交方案",0,"评分表导向：创新产品 35 分技术创新度要硬证据，5 天内无法取得，且有真实性合规风险。","10.6"),
+Q("scene",2,"单条 2 km 航路、12 个节点的硬件投资量级是？","百万元级|十万元级|千万元级|亿元级",0,"一个城市十条航路千万级、一百个城市十亿级——是量级估算，不是财务承诺。","10.4"),
+Q("scene",1,"民航局对 2035 年低空经济规模的预测口径是？","3.5 万亿元|1.5 万亿元|5000 亿元|10 万亿元",0,"2025 年约 1.5 万亿，2035 年预测 3.5 万亿。用来证明“需求侧存在”，不做收入预测。","1.1"),
+Q("scene",2,"本项目“站址复用”具体复用的是什么？","运营商既有楼顶、杆塔与路灯杆|新建专用雷达铁塔|机场跑道|卫星地面站",0,"只加装通感板卡与边缘算力盒，不动主设备、不新增天面，这是成本结构的核心差异。","10.4"),
+
+Q("isac",1,"ITU-R IMT-2030 六大场景中，与本项目最直接相关的两项是？","通信与感知融合、通信与 AI 融合|沉浸式通信、超大规模连接|极高可靠低时延、泛在连接|以上都不是",0,"前者对应 ISAC，后者对应“通感算智”里的“智”（网络内生智能）。","2.1"),
+Q("isac",2,"本项目属于哪种 ISAC 工作模式？","网络侧感知（基站发、基站收，目标为非合作散射体）|终端侧感知|协作式有源感知|被动外辐射源感知",0,"对应 TS 22.837 中的网络侧感知模式；多站只做数据级融合。","2.2"),
+Q("isac",1,"3GPP TR 36.777 提供的是？","增强 LTE 空中用户支持，含 UMa-AV 路损模型|ISAC 用例与需求|ISAC 评估方法|6G 总体框架",0,"城市低空链路预算直接采用其 UMa-AV 路损公式。","2.4"),
+Q("isac",2,"3GPP TS 22.837 与 TR 38.859 分别是什么？","ISAC 用例与需求 / ISAC 评估方法|路损模型 / 检测模型|6G 框架 / 频谱规划|核心网架构 / 无线协议",0,"前者是 SA1 的需求研究，后者是 RAN 的评估方法研究。","2.4"),
+Q("isac",1,"“通感算智”四要素在本项目的落点，下列对应错误的是？","“算”指卫星算力|“通”指 OFDM 通感波形与确定性时延切片|“感”指参考除法到 RD 图再到 CFAR|“智”指 NLOSNet、TrajNet 与按需调 ρ",0,"“算”指站侧、边缘 MEC、区域中心三级算力，不是卫星。","2.3"),
+Q("isac",2,"本项目为什么不做跨站相参处理？","跨站相参要求 ns 级相位同步，城区难以做到；数据级融合 μs 级即可|站数不够|相参处理会降低精度|标准不允许",0,"只做时间戳对齐后的距离 + 角度融合；这直接回答了“12 个站怎么同步”。","2.6"),
+Q("isac",2,"“12 个站怎么同步”的标准答案是？","站间只需 μs 级时间戳对齐，站内 CPI 共用本振|需要 ns 级相位同步|需要 1 s 级同步|不需要任何同步",0,"15 m/s 的无人机 1 μs 只移动 15 μm；真正需要相干的是站内 20 ms 的 CPI。","2.6"),
+Q("isac",2,"6G 的 ISAC 相对 5G 的关键差异是？","6G 把通感列为内生能力，5G 的 ISAC 是 R19 才起步的增强特性|6G 频段更低|5G 不支持 OFDM|6G 不需要基站",0,"这是“为什么是 6G”的标准答法：能力 + 时间窗口（2027 覆盖考核落在 6G 预商用窗口）。","2.1"),
+Q("isac",2,"自发自收（基站同时收发）带来的核心问题是？","发射信号泄漏进接收机，淹没微弱回波|天线太重|频谱不够|终端不配合",0,"工程上用收发隔离、时分/频分、射频或数字对消；本项目模型里假设隔离理想。","2.7"),
+Q("isac",2,"大规模天线波束赋形对感知的主要代价是？","窄波束需要扫描/多波束，扫描周期吃掉航迹更新率|精度下降|带宽变窄|功耗降为零",0,"阵列越大波束越窄、角度分辨越高，但一次只能看一个方向。","2.7"),
+Q("isac",2,"“确定性时延切片”承诺的是？","时延有上界，而不是平均很快|带宽无限|零丢包|永远在线",0,"告警要在 100 ms 内下发，不能因一次拥塞变成 300 ms。","2.7"),
+Q("isac",3,"关于本项目的时间同步，下列说法正确的是？","多站融合只需时间戳对齐，站内相参依赖同一本振|每个站都需要原子钟|必须用光纤直连|同步误差 1 ms 会导致米级误差",0,"1 ms 内 15 m/s 的目标只移动 1.5 cm，对融合精度影响可忽略。","2.6"),
+Q("isac",1,"3GPP 中 ISAC 用例与需求由哪个方向负责？","SA1（TS 22.837）|RAN4|CT3|SA5",0,"SA1 做需求，RAN 做评估方法（TR 38.859）。","2.4"),
+
+Q("wave",1,"距离分辨率由什么决定？","占用带宽：c/(2·B_occ) = 1.50 m|FFT 点数|CPI|发射功率",0,"B_occ = 1666 × 60 kHz = 99.96 MHz，故 1.50 m。","3.4"),
+Q("wave",2,"距离栅格与距离分辨率的区别，正确的是？","栅格由采样带宽决定（1.22 m），分辨率由占用带宽决定（1.50 m）|两者总相等|栅格由 CPI 决定|分辨率由发射功率决定",0,"栅格是刻度，分辨率是能否分开。这是最常被混淆的一对。","3.4"),
+Q("wave",1,"速度栅格 Δv 等于？","λ/(2·CPI) ≈ 1.17 m/s|λ/(4·CPI)|c/(2B)|2v/λ",0,"λ = 4.6875 cm，CPI = 20 ms，故 1.17 m/s。","3.5"),
+Q("wave",2,"无模糊距离 2500 m 是怎么得到的？","Δr × N_FFT = 1.2207 × 2048|B × CPI|λ/2|c/(2B)",0,"距离栅格乘以 FFT 点数即最大无模糊距离。","3.4"),
+Q("wave",2,"相参积累增益 63.0 dB 的公式是？","10log10(B_occ·CPI)|20log10(N_FFT)|10log10(Pt)|10log10(N_sym)",0,"10log10(99.96e6 × 0.02) ≈ 63.0 dB，把 1200 个符号的能量相干相加。","3.6"),
+Q("wave",1,"6.4 GHz 对应的波长约为？","4.69 cm|4.69 mm|46.9 cm|0.47 m",0,"λ = c/f = 3e8/6.4e9 = 0.046875 m。","3.1"),
+Q("wave",1,"SCS = 60 kHz 时，一个 OFDM 符号（不含 CP）时长是？","16.67 μs|1.67 μs|166.7 μs|6 μs",0,"T_sym = 1/Δf = 1/60 kHz；1200 个符号即 20 ms 的 CPI。","3.2"),
+Q("wave",2,"采样带宽 122.88 MHz 等于？","N_FFT × SCS = 2048 × 60 kHz|N_used × SCS|B × 1.5|CPI 的倒数",0,"FFT 点数乘以子载波间隔即采样率。","3.2"),
+Q("wave",2,"慢时间加 Hamming 窗的首要目的是？","把 −13 dB 第一副瓣压到 −43 dB，防强杂波经副瓣泄漏|提高距离分辨率|降低功耗|增加无模糊距离",0,"代价是主瓣展宽约 1.5 倍、速度分辨率略降、约 1.3 dB 信噪比损失。","4.1"),
+Q("wave",1,"“参考除法”能工作的前提是？","发送符号已知或能被正确重构|目标必须合作|必须多站相参|必须有专用雷达波形",0,"这就是“通信即感知”：用来解调的参考符号，同时就是感知的参考。","3.3"),
+Q("wave",3,"参考除法在真实系统中的主要退化来源是？","功放非线性、相位噪声、IQ 不平衡导致除法残留|卫星钟差|多普勒为零|天线增益太高",0,"这是 P1 阶段要专门验证的“参考除法在真实功放下的退化”。","3.3"),
+Q("wave",2,"二维处理的正确顺序是？","先距离向 IFFT，再多普勒向 FFT|先多普勒 FFT，再距离 IFFT|两者可任意交换且等价|不需要顺序",0,"距离向逐符号可流水；多普勒向要等整个 CPI 攒齐。","3.7"),
+Q("wave",2,"无模糊速度约 702 m/s 主要由什么决定？","符号长度 T_sym（λ/(4·T_sym)）|CPI|带宽|发射功率",0,"SCS 决定符号长度，符号长度决定多普勒无模糊范围；离散 FFT 轴实际取到 701.95 m/s。","3.5"),
+Q("wave",2,"速度分辨率与 CPI 的关系是？","CPI 越长速度栅格越细，但目标走动与非平稳性风险越大|CPI 越长分辨率越粗|两者无关|CPI 越短越细",0,"20 ms 换 1.17 m/s，是一对硬矛盾。","3.5"),
+Q("wave",1,"OFDM 中循环前缀（CP）的作用是？","吸收多径时延扩展，避免符号间干扰|提高发射功率|增大带宽|实现多普勒测速",0,"CP 长度要大于最大时延扩展；仿真用理想同步，未计 CP 开销。","3.2"),
+Q("wave",2,"本项目选 60 kHz 子载波间隔，主要是在什么之间折中？","符号长度（多普勒容限/时延）与相位噪声敏感度|带宽与功率|站数与本振|CPI 与 FFT 点数",0,"子载波越开、符号越短，越不怕动目标，但越怕相位噪声。","3.2"),
+Q("wave",2,"相参积累的代价是？","CPI 内目标不能走出一个距离单元，否则积累失效|必须提高发射功率|距离分辨率下降|无法测速",0,"15 m/s × 20 ms = 0.3 m，仍在 1.22 m 栅格内，所以本项目安全。","3.6"),
+Q("wave",2,"占用带宽 99.96 MHz 等于？","1666 × 60 kHz|2048 × 60 kHz|100 × 60 kHz|1200 × 60 kHz",0,"中间 1666 个子载波干活，两头留保护带。","3.2"),
+Q("wave",3,"“栅格细就能分开两个目标”，这个说法？","错：能否分开取决于分辨率，栅格只是刻度|对：栅格越细分辨率越高|对：只要 FFT 点数够大|错：分辨率只取决于功率",0,"栅格由采样带宽决定，分辨率由占用带宽决定；两者可以差很多。","3.4"),
+Q("wave",2,"本项目一个 CPI 包含多少 OFDM 符号，对应多长？","1200 个符号，20 ms|2048 个符号，34 ms|1666 个符号，27.8 ms|1200 个符号，12 ms",0,"1200 × 16.67 μs = 20 ms，正好是端到端 100 ms 预算的 1/5。","3.1"),
+Q("sense",1,"MTI 抑制静止杂波利用的核心差异是？","杂波多普勒≈0，目标径向速度≠0|杂波距离更远|目标 RCS 更大|杂波带宽更宽",0,"建筑立面、塔架、地面的回波相位在 CPI 内几乎不变，能量全挤在零多普勒。","4.2"),
+Q("sense",1,"本项目 MTI 形成的速度盲区约为？","±1.17 m/s|±11.7 m/s|±0.117 m/s|±30 m/s",0,"等于速度栅格 λ/(2·CPI)；恰好覆盖悬停与极慢速目标。","4.2"),
+Q("sense",2,"针对 MTI 速度盲区，本方案列出的对策不包括？","直接提高发射功率|MTD 滤波器组并保留零速通道|多站交叉视角|长 CPI + 微多普勒",0,"提高功率解决不了“零速被当杂波删掉”的问题。","4.2"),
+Q("sense",2,"MTI 与 MTD 的区别是？","MTI 是对消（高通），MTD 是多普勒滤波器组（分通道）|MTI 精度更高|MTD 不消耗算力|两者完全相同",0,"MTI 一道切掉零速；MTD 按速度分格子，盲区可做成窄凹口。","4.3"),
+Q("sense",1,"CFAR 的核心思想是？","阈值随本地噪底浮动，保持虚警率恒定|固定阈值|只检测最强目标|提高发射功率",0,"“比周围平均亮多少倍才报警”，从而在安静郊区和喧闹港口都稳住误报率。","4.4"),
+Q("sense",2,"CA-CFAR 中“保护单元”的作用是？","防止目标自身能量泄漏进参考窗、抬高噪底估计|保护天线|保护接收机|提高分辨率",0,"保护单元把被测单元与训练单元隔开，避免目标“自己污染自己的噪底”。","4.4"),
+Q("sense",1,"Pfa = 1e-4 的含义是？","平均每 1 万个检测单元允许 1 次虚警|检测概率 99.99%|信噪比 40 dB|只能检测 1 个目标",0,"虚警率是设计值，由 CFAR 阈值倍数保证。","4.4"),
+Q("sense",2,"Swerling-1 模型下检测概率的闭式是？","Pd = Pfa^(1/(1+SIR))|Pd = 1 − Pfa|Pd = SIR/(1+SIR)|Pd = exp(−Pfa/SIR)",0,"起伏目标的标准结论；给定 Pd、Pfa 可反解所需 SIR。","4.6"),
+Q("sense",2,"Pd=0.9、Pfa=1e-4 时，所需 SIR 约为？","19.4 dB|9.4 dB|29.4 dB|3 dB",0,"S = 86.5，即 19.37 dB；项目的 SIR 曲线就以这个点为锚。","4.6"),
+Q("sense",1,"雷达方程中回波功率随距离的变化是？","R⁻⁴|R⁻²|R⁻¹|与距离无关",0,"距离翻倍，回波功率降 16 倍（12 dB），所以“加功率”效率极低。","4.7"),
+Q("sense",2,"“热噪声受限 3.2 km、杂波受限 502 m”说明？","瓶颈是杂波抑制与非视距补偿，不是发射功率|应该加大发射功率|天线增益不够|频段选错了",0,"这是全项目最值钱的判断，决定了算法资源的投放方向。","4.8"),
+Q("sense",2,"6.3 倍差距对应哪两个数？","3175 m 与 502 m|502 m 与 212 m|3.2 km 与 2.5 km|29.2 dB 与 19.4 dB",0,"3175/502 ≈ 6.32；非视距口径则是 212 m。","4.8"),
+Q("sense",2,"测距 CRLB 的表达式是？","c/(2·B·√(2·SNR))|c/(2B)|λ/(2·CPI)|c/(2·SNR)",0,"任何无偏估计器的方差下界，用来判断处理链是否接近最优。","4.9"),
+Q("sense",3,"某些点出现“RMSE 小于 CRLB”，最合理的解释是？","低 SNR 点有效检出少（选择性样本）+ 带宽近似 + 插值先验|CRLB 公式错了|仿真造假|估计器突破了物理极限",0,"−52 dB 点只有 2 次有效检测；只能说“同量级”，不能说“优于下界”。","4.9"),
+Q("sense",2,"峰值三点抛物线插值的作用是？","用主瓣形状估计亚栅格偏移，把 1.22 m 栅格变成 0.1 m 级精度|提高发射功率|去除非视距|增大无模糊距离",0,"测距 RMSE 0.09–0.20 m，远小于栅格。","4.5"),
+Q("sense",3,"仿真中给杂波加 0.35 m/s 多普勒展宽，是为了？","模拟植被摆动/结构振动，制造 MTI 后的裙边残留，让问题更真实|增加目标速度|降低算力|让 CFAR 失效",0,"如果杂波绝对零速，MTI 一刀切干净就不需要后面的 CFAR 和 AI 了。","5.6"),
+Q("sense",3,"SIR 标定常数 127.4 dB 的正确说法是？","单锚点标定（500 m 处 19.4 dB），量级对齐公开试验，不是实测拟合|由一万次实测拟合得到|由标准直接给出|随便取的",0,"被追问时要说“单锚点 + 标准衰减律的工程标定，P1 用实测替换”。","13.7"),
+Q("sense",3,"无 MTI 时低速段 Pd=1.0，正确解读是？","目标与杂波同单元，检测到了但分不清|目标真的被可靠检测|没有杂波|CFAR 失效",0,"MTI 的价值不是“从看不见到看见”，而是“从分不清到分得清”。","13.8"),
+Q("sense",2,"仿真中杂波源数量与杂波/目标功率比的默认设置是？","14 个杂波源、30 dB|1 个、10 dB|100 个、60 dB|没有杂波",0,"功率比可扫到 46 dB；杂波放在目标距离邻域，落进同一 CFAR 参考窗。","5.6"),
+Q("sense",2,"处理链每 CPI 约 0.26 GMAC，意味着 20 ms 内需要多少持续算力？","约 26 GFLOPS|约 2.6 GFLOPS|约 260 GFLOPS|约 0.26 GFLOPS",0,"0.26e9 次乘加 / 0.02 s = 13 GMAC/s ≈ 26 GFLOPS。","4.10"),
+Q("sense",2,"本机实测 228 ms/CPI、等效 2.28 GFLOPS，说明？","卡的是实现效率，不是算法（需求仅峰值的 7%）|算法复杂度太高|CPU 坏了|波形设计错误",0,"NumPy 单线程只用到 CPU 峰值不到 1%，改进方向全是工程。","4.10"),
+Q("sense",3,"CA-CFAR 在“杂波边缘”会出现什么问题？","参考窗一半杂波一半干净，噪底估计失准导致虚警，需 GO/OS/分块 CFAR|完全没有问题|只能检测静止目标|分辨率下降",0,"这是 CA-CFAR 的经典弱点，工程上要换 Robust CFAR。","4.4"),
+Q("sense",2,"慢时间加窗的代价是？","主瓣展宽、速度分辨率略降、约 1.3 dB 信噪比损失|距离分辨率下降|无模糊距离变短|发射功率下降",0,"没有免费的低副瓣：压副瓣必然展宽主瓣。","4.1"),
+
+Q("chan",2,"TR 36.777 中 UMa-AV 的 LOS 路损形式是？","28 + 22log10(d) + 20log10(f_GHz)|32.4 + 20log10(d)|40log10(d)|自由空间公式",0,"NLOS 则用另一组含 h_UT 的式子；本项目按标准实现。","5.2"),
+Q("chan",1,"非视距（NLOS）造成的测距偏差方向是？","只偏大（路径变长），4–18 m|只偏小|随机正负|恒为 0",0,"绕射/反射只会让路更长，所以是系统性正偏差——这决定了“去偏”而不是“平均”。","5.3"),
+Q("chan",2,"仿真中非视距样本占比约为？","约一半（10878/23250 ≈ 46.8%）|不到 5%|90% 以上|0",0,"所以“至少两站可见”不是冗余设计，是必需。","7.7"),
+Q("chan",2,"slab 法用于判定？","三维线段与建筑包围盒是否相交（遮挡）|信号频率|目标速度|天线增益",0,"对 x/y/z 三个轴求进出租参数区间再求交，易向量化。","5.4"),
+Q("chan",1,"本项目取无人机 RCS = 0.02 m²，其量级感是？","小型多旋翼，雷达眼里约一张 A4 纸大小|汽车|人|大型客机",0,"塑料壳小飞机在雷达眼里的等效面积远小于几何面积。","5.5"),
+Q("chan",3,"菲涅尔区判据常把什么情况判为 NLOS？","第一菲涅尔区被遮挡超过约 60%|只要看得见就是 LOS|多径超过 10 条|信噪比低于 0 dB",0,"几何上“没挡死”也可能因菲涅尔区被占而损耗；本项目用包围盒求交简化。","5.3"),
+Q("chan",2,"本项目 GNSS 慢变多径偏差的模型是？","AR(1)，相关时间常数 15 s，σ = 7 m|白噪声 σ = 7 m|随机游走无相关|阶跃常数",0,"慢变偏差会被滤波器平滑进状态，所以本方案让它降级为兜底。","5.8"),
+Q("chan",2,"为什么慢变偏差比白噪声更难处理？","滤波器会把慢变偏差平滑进状态，反而污染结果|慢变偏差幅值更小|白噪声无法建模|慢变偏差只影响高度",0,"“你越信它，错得越稳。”","5.8"),
+Q("chan",3,"仿真中 GNSS 强非视距跳变的发生概率是？","每秒 6%|每秒 60%|每分钟 6%|恒定发生",0,"跳变会把偏差瞬间抬到十几米，制造重尾。","5.8"),
+Q("chan",2,"12 个站交错布置在航路两侧 ±120 m，主要目的是？","改善几何精度因子（GDOP），避免方向向量近似平行|美观|节省光纤|避开建筑",0,"同侧布站会让 HᵀH 病态，横向误差被放大。","6.2"),
+Q("chan",1,"城市峡谷对 GNSS 的主要影响是？","多径与非视距导致十米级慢变误差|信号频率漂移|卫星数量一定为 0|接收机损坏",0,"白噪声 3 m + 慢变偏差 7 m，叠加偶发强跳变。","5.8"),
+Q("chan",3,"LOS/NLOS 阴影衰落的标准差大约取？","4.4 dB / 6.0 dB|0.44 dB / 0.6 dB|44 dB / 60 dB|1 dB / 2 dB",0,"代码中按 rng.normal(0, 4.4) 与 rng.normal(0, 6.0) 叠加。","5.2"),
+
+Q("pos",1,"本项目 EKF 的状态量是？","位置与速度（二维匀速 CV 模型）|位置、速度、加速度|只有位置|姿态角",0,"4 维状态 [x, y, vx, vy]，过程噪声由加速度谱密度给出。","6.4"),
+Q("pos",2,"EKF 更新中的“新息”定义为？","y = z − h(x⁻)，量测减去先验预测观测|y = z − H·x|y = x⁻ − z|y = K·z",0,"先验处的预测观测 h(x⁻)，而不是 H·x——这是 EKF 与 KF 写法的关键差别。","6.4"),
+Q("pos",2,"采用 Joseph 形式更新协方差的目的是？","保持对称正定，避免长时间运行数值发散|加快计算|提高测距精度|减少参数量",0,"17 万步更新下，标准形式可能失去正定性，Joseph 形式更稳。","6.4"),
+Q("pos",3,"2 维新息门限取 χ² ≈ 16 对应约多少置信度？","99.97%|95%|68%|50%",0,"χ²(2) 的 99.97% 分位约 16.2。","6.5"),
+Q("pos",2,"GDOP 的物理含义是？","几何排布对定位误差的放大倍数|目标雷达截面积|信噪比增益|多普勒展宽",0,"数值上用 sqrt(cond(HᵀH)) 作为代理，并作为 NLOSNet 的特征。","6.2"),
+Q("pos",2,"为什么 ISAC 有效站 ≥3 时才让 ISAC 主导、GNSS 只兜底？","3 站以上几何可观测，且 GNSS 慢变偏差会污染状态|3 站以下不能通信|GNSS 更贵|标准要求",0,"少于 3 站时几何不可观测或病态，才引入 GNSS 保可用性。","6.6"),
+Q("pos",2,"ISAC 有效站少于 3 时，本方案如何处理 GNSS？","接入，σ = 6 m，保可用性|仍然不用|用 σ = 15 m|用 σ = 1 m",0,"GNSS 从“主要误差源”降为“可用性保障”。","6.6"),
+Q("pos",2,"异方差加权中，视距置信度低时观测方差如何变化？","从 1.2 m 放大到 6.0 m|从 6.0 m 缩到 1.2 m|不变|置为 0",0,"σ_eff = σ_r + (6.0 − σ_r)(1 − w)，既去偏又降权。","6.7"),
+Q("pos",2,"为什么非视距观测“去偏后仍要保留”而不是丢弃？","城市里视距站常只有 2–3 个，丢掉会破坏几何约束|丢弃会更准|标准禁止丢弃|丢弃计算量更大",0,"保留 + 降权，比丢弃更优。","6.7"),
+Q("pos",2,"方位角观测必须如何处理？","取最小角差（周期量），如 angle(exp(jΔ))|直接相减|取绝对值|转成距离",0,"359° 与 1° 只差 2°，直接相减会得到 358°。","6.3"),
+Q("pos",1,"CEP95 的定义是？","水平误差的 95% 分位|平均误差|最大误差|均方根误差",0,"监管与适航常用它，因为关心的是尾部。","6.9"),
+Q("pos",2,"圆形高斯假设下，CEP95 与 RMSE 的近似关系是？","CEP95 ≈ 1.73 × RMSE|CEP95 = RMSE|CEP95 ≈ 3 × RMSE|CEP95 ≈ 0.5 × RMSE",0,"CEP95 ≈ 2.4477σ，RMSE = √2·σ，比值约 1.73。","6.9"),
+Q("pos",3,"本项目 CEP95/RMSE 约 1.9–2.0（高于 1.73），说明？","误差有重尾（多径慢变与突跳），不是纯高斯|数据算错了|CEP95 定义错误|RMSE 无意义",0,"这正好证明“必须看 CEP95，不能只看 RMSE”。","6.9"),
+Q("pos",1,"A/B/C 三方案分别是？","纯 GNSS / GNSS+ISAC 盲融合 / 再加 AI 去偏与加权|三种滤波算法|三种波形|三种站址",0,"消融设计：把 66 个百分点的提升拆成通感 58 + AI 8。","6.8"),
+Q("pos",2,"相对纯 GNSS 的 66 个百分点降幅，如何拆解？","通感贡献 58 个点，AI 再贡献 8 个点|AI 贡献 58 个点|各 33 个点|无法拆解",0,"58.0 = 1 − 12.83/30.54；66.2 − 58.0 ≈ 8.2。","6.8"),
+Q("pos",2,"方案 A 的 CEP95 达 30.5 m，主要误差来源是？","7 m 慢变多径偏差与强非视距跳变|白噪声 3 m|测距误差|时钟漂移",0,"慢变偏差无法被平均掉，是“纯 GNSS 在城市不可信”的根因。","5.8"),
+Q("pos",2,"由 CEP95 10.3 m 推安全间隔，正确的思路是？","σ≈CEP95/2.45，间隔取 3σ，再留工程余量|间隔 = CEP95|间隔 = CEP95/3|间隔 = 2×CEP95",0,"σ≈4.2 m，3σ≈12.6 m，工程取 30 m 后容量约翻倍。","6.10"),
+Q("pos",2,"为什么主指标用 CEP95 而不是均值？","定位误差重尾，监管关心最差的一批|均值算不出来|CEP95 更小|标准强制",0,"均值会被少数大误差主导，分位数才反映尾部。","6.9"),
+Q("pos",2,"GNSS 与 ISAC 的定位基准差异，正确描述是？","GNSS 基准是卫星—用户，ISAC 基准是地面站—目标|两者完全一样|ISAC 基准在天上|GNSS 不给绝对位置",0,"ISAC 站坐标可精确标定、不受电离层影响，但遮挡更严重。","6.1"),
+Q("pos",3,"三方案对比中把新息门限设为 1e9，意味着？","等于关闭门限，为了隔离 AI 变量|门限更严格|只允许 1 个观测|滤波失效",0,"这是为了公平对比；但方案正文写了“3σ 门限”，答辩要能解释这一差别。","13.2"),
+Q("ai",2,"NLOSNet 的参数量 5762 是怎么构成的？","两个 9→48→48→1 的 MLP，各 2881|一个 9→48→1|两个 9→96→1|一个 9→5762",0,"单头 432+48+2304+48+48+1 = 2881，双头即 5762。","7.9"),
+Q("ai",2,"NLOSNet 9 维特征中，物理上最强的判据通常是？","信杂比（NLOS 有 8–22 dB 惩罚）|测距绝对值|参与站数|GDOP",0,"遮挡带来显著 SIR 损失，所以 SNR/SIR 是最强特征，也是仿真里可分性高的原因。","7.5"),
+Q("ai",1,"NLOSNet 的双头分别输出？","是否非视距（sigmoid）与附加距离偏差（线性）|距离与速度|角度与功率|航向与高度",0,"两个任务损失尺度不同，所以用两个独立 MLP，而不是一个头出两个值。","7.5"),
+Q("ai",3,"回归头先把标签除以 10 再训练，原因是？","让输出落在 O(1)，与初始化/学习率匹配，梯度尺度稳定|单位换算|防止过拟合|加快推理",0,"轨迹预测的输出除以 30，同理。","7.4"),
+Q("ai",2,"BCE 配 sigmoid 时，dL/dz 等于？","p − y|p(1−p)(p−y)|(p−y)/(p(1−p))|2(p−y)",0,"数值稳定，不需要除以 σ(1−σ)；这是 BCE+sigmoid 的标准性质。","7.4"),
+Q("ai",1,"Adam 相对 SGD 的主要优势是？","每个参数自适应步长，适合尺度差异大的特征|不需要梯度|没有超参数|一定收敛到全局最优",0,"9 维特征尺度差异大（米、dB、角度混在一起），自适应步长更稳。","7.3"),
+Q("ai",3,"Xavier 初始化的区间是？","±√(6/(n_in+n_out))|±0.01|±1|N(0,1)",0,"让各层方差大致守恒，避免一开训就饱和或爆炸。","7.2"),
+Q("ai",2,"“自举两轮”训练指？","先用盲融合采样本训练，再用训练好的网络重采并联合重训|训练两次相同数据|两个网络互相蒸馏|先测试后训练",0,"第一轮新息被偏差污染，第二轮干净得多，更接近部署分布。","7.6"),
+Q("ai",2,"NLOSNet 最主要的真实风险是？","域偏移（仿真与现场分布不一致）|参数量太大|推理太慢|无法训练",0,"同一遮挡换城市、换材质，特征分布就变；对策是仿真预训练 + 实测增量微调。","7.7"),
+Q("ai",1,"99.7% 的准确率应如何表述？","仿真分布内留出集结果，不等于现场|外场实测|所有城市通用|理论极限",0,"准确率 99.67%、F1 0.996，假阴性 54、假阳性 23。","7.7"),
+Q("ai",2,"AI 失效时的“下限”是多少？","方案 B 的 12.8 m|30.5 m|10.3 m|5.2 m",0,"即使完全不用 NLOSNet，直接融合也比纯 GNSS 好 58%。","7.7"),
+Q("ai",2,"为什么用万参数级小模型而不是大模型？","杆塔边缘盒 30 W、无风扇，且实测样本少，小模型易微调|没有 GPU|大模型不准|标准禁止",0,"小模型不是妥协，是场景约束下的正确选择。","7.1"),
+Q("ai",2,"TrajNet 的输入与输出是？","最近 8 点相对位移（16 维）→ 未来 15 步位移（30 维）|8 个绝对坐标 → 15 个绝对坐标|速度 → 位置|图像 → 轨迹",0,"对应 1.5 s 预测窗，参数量 7198。","7.8"),
+Q("ai",3,"TrajNet 为什么用“相对最后一点的位移”作为特征？","获得平移不变性，学“怎么动”而非“在哪”|减少参数量|加快训练|避免过拟合",0,"网络学的是转弯、加减速的规律，与城市坐标无关。","7.8"),
+Q("ai",2,"1.5 s 预测窗末端，TrajNet 与匀速外推的 MAE 分别约为？","0.57 m 与 2.08 m|2.08 m 与 0.57 m|0.19 m 与 0.76 m|5 m 与 10 m",0,"0.8 s 处则是 0.19 m 与 0.76 m；转弯段差距最大。","7.8"),
+Q("ai",2,"本项目训练数据来自？","全部仿真生成，无实测|公开数据集|外场采集|第三方购买",0,"这是最大的软肋；两段式训练与实测增量微调已写进 P2 与风险条目。","7.7"),
+
+Q("conf",1,"时空双门限的取值是？","水平 <30 m 且垂直 <10 m|水平 <10 m|垂直 <30 m|水平 <100 m",0,"只看水平会把“投影重叠但高度差足够”误判为冲突。","8.2"),
+Q("conf",1,"告警提前量的定义是？","首次告警时刻到两机最近接近时刻之差|预测窗长度|告警持续时间|从起飞到告警",0,"上限受预测窗长度约束。","8.3"),
+Q("conf",3,"本项目实测平均提前量 1.62 s，KPI 要求 ≥3 s，说明？","未达标，受 1.5 s 预测窗限制，需延长窗与意图信息|已达标|KPI 写错了|提前量不重要",0,"答辩要主动说“不达标”，再说补足路径，不要含糊成“接近目标”。","13.6"),
+Q("conf",2,"告警误报率 11.9% 对应？","59 次告警中 7 次误报|600 组中 59 组误报|11.9% 漏报|P4 目标已达成",0,"P4 目标是 ≤5%，所以仍未达标。","8.4"),
+Q("conf",1,"本项目预测窗长度为？","1.5 s（15 步 @10 Hz）|3 s|0.5 s|10 s",0,"提前量天然被它卡住；想提前 3 s，预测窗就得 ≥3 s。","7.8"),
+Q("conf",1,"分级处置策略通常是？","提示 → 告警 → 强制（重规划/上报）|直接急停|只记录不告警|只通知监管",0,"不是“一有风险就急停”，而是逐级升级。","8.5"),
+Q("conf",2,"“容量约翻倍”的逻辑链是？","定位精度提升 → 安全间隔 60→30 m → 容量提升|增加发射功率|增加站数|提高飞行速度",0,"容量不是简单按间隔反比，还受起降吞吐、交叉航路影响，所以说“约”。","8.6"),
+Q("conf",2,"为什么双门限比单一水平距离更能降低虚警？","把“投影重叠但高度差足够”的情况排除|计算更简单|门限更小|不需要预测",0,"立体间隔才符合实际运行。","8.2"),
+Q("conf",2,"引入航路意图（航路点、时刻表）的作用是？","把纯几何判定升级为意图感知，延长有效提前量|替代雷达|减少站数|提高分辨率",0,"这是把提前量从 1.62 s 往 3 s 补的主要手段。","8.3"),
+
+Q("res",1,"通感折中的吞吐公式是？","C=(1−ρ)·B·log2(1+SNR)|C=ρ·B|C=B·log2(1+SNR)|C=B/ρ",0,"感知占用的时频资源不能同时传数据。","9.1"),
+Q("res",1,"推荐工作点 ρ=25% 的依据是？","Pd≥0.9 且吞吐损失≤25% 的交集|随手取的|标准规定|最大化吞吐",0,"再少看不清，再多说得太慢。","9.1"),
+Q("res",2,"ρ=25% 时吞吐约为？","377 Mbps|478 Mbps|201 Mbps|100 Mbps",0,"ρ=5% 时 478 Mbps，ρ=60% 时 201 Mbps。","9.1"),
+Q("res",3,"SIR 随 ρ 的 10log10(ρ/ρ0) 关系属于？","工程一阶近似，不是严格 ISAC 波形理论|精确推导|标准公式|实测拟合",0,"答辩时要说“一阶近似/量级估算”，不要说是推导出来的。","9.1"),
+Q("res",1,"三层算力划分是？","站侧（波形/点迹）—边缘 MEC（对齐/NLOSNet/EKF）—区域中心（多机/冲突/重规划）|云端—终端|基站—卫星|CPU—GPU—NPU",0,"关键约束是“数据不出站”。","9.3"),
+Q("res",1,"“数据不出站”指？","原始 IQ 不上传，只上传约 40 字节/点迹|数据不落盘|只传视频|只传结果文件",0,"回传带宽从 Gbit/s 量级降到 kbit/s 量级。","9.3"),
+Q("res",2,"TOPS 与 GFLOPS 的关键区别是？","TOPS 是 INT8 神经网络算力，GFLOPS 是浮点通用算力|两者可互换|TOPS 更大|GFLOPS 只用于 AI",0,"不能拿 TOPS 去吹能跑雷达信号处理。","9.4"),
+Q("res",3,"为什么 4 TOPS 的 NPU 跑不了 FFT/CFAR？","指令集与数据通路面向矩阵乘，不是蝶形运算与位反转寻址|算力不够|功耗太高|内存太小",0,"NPU 只承担 NLOSNet，那部分本来就是 0.02 ms。","9.4"),
+Q("res",2,"CPI=20 ms 对端到端时延意味着？","它是物理硬底，处理再快也降不到 20 ms 以下|可以忽略|可以压缩到 2 ms|与时延无关",0,"想再低只能缩短 CPI、滑窗 CPI 或事件触发。","9.6"),
+Q("res",2,"27.3 ms 预算由哪些部分组成？","CPI 20 + 站侧折算 5.71 + 回传 0.5 + 融合 0.05 + AI 0.02 + 下发 1.0|只有 CPI|只有处理|CPI + 100",0,"合计 27.28 ms，对 100 ms 上限。","9.5"),
+Q("res",3,"40 倍加速的正确表述是？","工程假设（定点/SIMD/多核/FPGA），三处材料标注为折算|实测加速比|算法复杂度降低|硬件免费升级",0,"真正的承诺是 P1 的“一个 CPI 20 ms”门槛，不是这个倍数。","13.9"),
+Q("res",2,"228.4 ms 实测对应的等效算力是？","2.28 GFLOPS|26 GFLOPS|300 GFLOPS|0.26 GFLOPS",0,"需求 26 GFLOPS，实现只到 2.28，说明卡在实现效率。","4.10"),
+
+Q("eng",1,"TRL 3 通常表示？","关键功能在实验室环境得到验证|已量产|已商用|只有概念",0,"TRL 是技术成熟度 1–9 级；本项目多项技术标在 3–4。","10.1"),
+Q("eng",2,"本项目 OFDM 通感波形的成熟度标注为？","TRL 4–5（原理样机）|TRL 9|TRL 1|TRL 7",0,"MTI/CFAR 标 TRL 6，非视距补偿与融合标 3–4。","10.1"),
+Q("eng",1,"“专利已受理”意味着？","材料合格进入审查，不等于授权|已获得专利权|已商用|已通过实审",0,"受理→初审→公布→实审→授权，周期通常 1–3 年。","10.3"),
+Q("eng",2,"3 份技术应用证明能证明什么？","认可方案在其业务场景中的技术适用性|已商用|已签约|已采购",0,"证明能力被认可，不证明有采购、有收入。","10.3"),
+Q("eng",1,"可复现三要素是？","代码随材料提交、种子固定、一条命令|PPT 精美|视频清晰|专利受理",0,"把“信不信”变成“跑不跑”。","10.2"),
+Q("eng",2,"匿名要求通常还包括？","PDF/Word 文档属性里的作者、公司字段|只删封面|只删正文|无需处理",0,"Word 的“文档属性/作者”也可能带单位名，上传前要检查。","10.3"),
+Q("eng",1,"演示视频的硬性规格是？","MP4、3–5 分钟、≤300 MB、必须有音轨|任意时长|≤10 MB|无需音轨",0,"无声视频可能被判“材料不完整”直接出局。","附录A"),
+Q("eng",1,"生成式 AI 使用应如何声明？","如实说明辅助范围，结论由团队负责|完全不提|全部归功于 AI|只口头说明",0,"用了不说 = 诚信风险；说了不丢分。","10.3"),
+Q("eng",3,"SEP/FRAND 指？","标准必要专利 / 公平合理无歧视许可|软件工程流程|频谱复用方案|安全加密协议",0,"未来涉及基站实现时的许可原则。","10.3"),
+Q("eng",2,"“成本不到专用雷达四成”的口径是？","单公里航路建设成本的工程估算，非财务承诺|已签约合同价|设备采购发票|十年运维总成本",0,"真实数字要等 P3 拿到设备报价才收敛。","10.4"),
+Q("eng",2,"商业模式三阶段是？","航路保障服务 → 设备与平台 → 数据与接口|卖飞机 → 卖保险 → 卖广告|免费 → 收费 → 上市|硬件 → 软件 → 咨询",0,"定位是“给运营商和监管方供货的那一层”。","10.5"),
+Q("eng",2,"消融实验的作用是？","同场景同口径下只改一个变量，拆解各组件贡献|增加样本量|减少算力|提高精度",0,"A→B→C 才能把 66 个点拆成通感 58 + AI 8。","附录B.3"),
+Q("eng",3,"99.67% ± 0.07 个百分点这一区间说明？","只覆盖同分布抽样误差，不覆盖域偏移|现场也能保证 99.67%|模型不会错|样本不足",0,"统计精度 ≠ 泛化保证。","附录B.5"),
+
+Q("num",3,"172 872 个航迹点对应哪组配置？","12 组 × 6 机 × 2401 点（240 s @10 Hz）|20 组 × 6 机 × 3001 点|6 组 × 12 机|300 s × 10 Hz × 6",0,"这正是 --pos-only 的配置；方案表 7 写的是 20 组 × 300 s，两处口径要统一。","13.1"),
+Q("num",2,"29.2 dB 这个数的含义是？","MTI 前后杂波峰值功率衰减量|信噪比|天线增益|路径损耗",0,"直接测峰值衰减，而不是看平均场。","11.2"),
+Q("num",1,"1.5 m 与 1.17 m/s 分别是什么？","距离分辨率与速度栅格|距离栅格与速度分辨率|无模糊距离与速度|误差与偏差",0,"1.50 m 由占用带宽决定，1.17 m/s 由 CPI 决定。","3.4"),
+Q("num",2,"63 dB 是怎么算的？","10log10(99.96e6 × 0.02)|10log10(2048)|20log10(1200)|10log10(10 W)",0,"B_occ × CPI = 1.999e6，取对数即 63.0 dB。","3.6"),
+Q("num",2,"非视距识别的混淆矩阵是？","TP 10824、FP 23、FN 54、TN 12349|TP 10878、FN 0|TP 23250|TP 10000、FP 1000",0,"合计 23250，正例 10878；准确率 99.67%。","7.7"),
+Q("num",3,"“重叠 40%”与站间距 175 m、半径 500 m 的关系是？","不自洽，实际重叠约 78%|完全一致|重叠约 10%|无法计算",0,"40% 重叠对应圆心距约 500 m；175 m 间距下重叠约 78%。","13.10"),
+Q("num",3,"答辩时把 27.3 ms 说成“实测”，风险是？","与 228.4 ms 实测矛盾，等于自曝数据不实|没有风险|显得更快|评委听不懂",0,"27.3 是预算、228.4 是实测、40× 是假设，三者不能混。","13.4"),
+Q("num",3,"方案表 7 写“300 s × 6 机 × 20 组”，与结果是何关系？","结果实际来自 12 组 × 240 s，两处口径需统一|完全一致|结果来自 20 组|结果来自 300 组",0,"被追问时按实际配置回答，数字要能对上乘法。","13.1"),
+Q("num",2,"3.2 km 与 502 m 相差约 6.3 倍，说明？","瓶颈在杂波，不在功率|功率不足|频段太低|站太少",0,"所以钱和算力全押在 MTI 与 NLOSNet 上。","4.8"),
+Q("num",2,"5762 与 7198 分别是？","NLOSNet 与 TrajNet 参数量|两种站数|两种带宽|两种时延",0,"两个模型都在 1 万参数以内，可整体下沉到站侧。","7.9"),
+Q("num",3,"若评委问“17.3 万点怎么来的”，正确回答是？","12 组 × 6 机 × 240 s × 10 Hz，加 1 个初值|20 组 × 300 s|随便写的|18 万约等于",0,"12 × 6 × 2401 = 172872，能当场算出来最可信。","13.1"),
+Q("isac",2,"以下哪些属于本项目的工程前提假设？（多选）","收发隔离理想，只计 6 dB 实现损耗|站间只做 μs 级时间戳对齐，不做跨站相参|目标为合作目标，携带应答机|站内 CPI 共用本振","0,1,3","本项目假设目标为非合作散射体、收发隔离理想；这两条都是被理想化的前提，P1 要实测验证。","2.7"),
+Q("sense",3,"以下哪些是 MTI 速度盲区的工程对策？（多选）","MTD 滤波器组并显式保留零速通道|多站交叉视角|直接提高发射功率|长 CPI 配合微多普勒特征","0,1,3","提高功率解决不了“零速被当杂波删掉”的问题。","4.2"),
+Q("pos",3,"关于定位与融合，以下说法正确的有？（多选）","GNSS 慢变偏差会被滤波平滑进状态，反而污染结果|非视距观测应去偏后降权，而不是直接丢弃|CEP95 一定等于 RMSE|GDOP 反映几何排布对误差的放大","0,1,3","CEP95 ≈ 1.73×RMSE（圆高斯），本项目因重尾达到 1.9–2.0，绝非相等。","6.9"),
+Q("res",2,"以下哪些是降低站侧处理时延的工程手段？（多选）","C + SIMD 定点化|FFT/CFAR 下放 FPGA 或 DSP|把 CPI 从 20 ms 缩到 2 ms|关注区裁剪","0,1,3","缩短 CPI 会牺牲速度分辨率，是波形层面的取舍，不是“处理优化”。","9.5"),
+Q("eng",2,"以下哪些属于资格红线？（多选）","把仿真写成实测|把专利受理写成授权|如实披露开源依赖|把合作意向写成已签约","0,1,3","如实披露开源依赖是义务，不是红线；前两项与第四项都可能直接取消资格。","10.3"),
+Q("num",3,"以下哪些说法符合材料口径？（多选）","27.3 ms 是端到端预算|228.4 ms 是处理链实测|40 倍是工程假设的折算系数|99.7% 是外场实测准确率","0,1,2","99.7% 是仿真分布内留出集结果；其余三项正是材料里标注过的口径。","13.4"),
+
+];
+
+const CATS = [
+  {id:"scene", name:"场景与需求",  color:"#ffb454"},
+  {id:"isac",  name:"6G 与通感一体化", color:"#4d8dff"},
+  {id:"wave",  name:"空口与波形",  color:"#35e0d0"},
+  {id:"sense", name:"感知处理链",  color:"#7c9cff"},
+  {id:"chan",  name:"信道与几何",  color:"#9d7bff"},
+  {id:"pos",   name:"定位与融合",  color:"#3ddc97"},
+  {id:"ai",    name:"AI 两个网络", color:"#ff7ab6"},
+  {id:"conf",  name:"冲突与容量",  color:"#ff9f5a"},
+  {id:"res",   name:"资源算力时延", color:"#5ad1ff"},
+  {id:"eng",   name:"工程与合规",  color:"#c0c8da"},
+  {id:"num",   name:"数字与口径",  color:"#ffd166"}
+];
+const CATMAP = {}; CATS.forEach(function(c){CATMAP[c.id]=c;});
+const DIFF = {1:"基础",2:"进阶",3:"陷阱"};
+
+const QUESTIONS = RAW.map(function(x,i){
+  x.id = i;
+  var idx = x.o.map(function(_,k){return k;});
+  var seed = ((i+1)*2654435761 + 1013904223) >>> 0;
+  function rnd(){ seed = (seed*1664525 + 1013904223) >>> 0; return seed/4294967296; }
+  for(var k=idx.length-1;k>0;k--){ var j=Math.floor(rnd()*(k+1)); var tt=idx[k]; idx[k]=idx[j]; idx[j]=tt; }
+  var tail = idx.filter(function(k){return x.o[k].indexOf("以上")===0;});
+  if(tail.length){ idx = idx.filter(function(k){return x.o[k].indexOf("以上")!==0;}).concat(tail); }
+  x.o = idx.map(function(k){return x.o[k];});
+  x.a = x.a.map(function(a){return idx.indexOf(a);}).sort(function(p,q){return p-q;});
+  x.multi = x.a.length > 1;
+  return x;
+});
+
+/* ================= 状态 ================= */
+const LSKEY = "6g-quiz-v1";
+const S = {
+  pool: [], idx: 0, selected: [], submitted: false, correct: 0,
+  answers: [], t0: 0, timer: 0, running: false
+};
+let store = loadStore();
+function loadStore(){
+  try{
+    const raw = localStorage.getItem(LSKEY);
+    if(raw){
+      const o = JSON.parse(raw);
+      o.wrong = o.wrong || []; o.history = o.history || []; o.cats = o.cats || {};
+      o.settings = o.settings || {};
+      return o;
+    }
+  }catch(e){}
+  return {wrong:[], history:[], cats:{}, settings:{cats:[], diff:0, count:20, shuffle:true, instant:true}};
+}
+function saveStore(){ try{ localStorage.setItem(LSKEY, JSON.stringify(store)); }catch(e){} }
+
+let ui = {
+  cats: (store.settings.cats||[]).slice(),
+  diff: store.settings.diff||0,
+  count: store.settings.count===0?0:(store.settings.count||20),
+  shuffle: store.settings.shuffle!==false,
+  instant: store.settings.instant!==false
+};
+
+/* ================= 通用 ================= */
+function el(id){return document.getElementById(id);}
+function go(name){
+  var inQuiz = document.getElementById("view-quiz").classList.contains("on");
+  if(S.running && inQuiz && name!=="quiz"){
+    if(!confirm("退出本轮练习？进度不保存。")) return;
+    S.running = false; clearInterval(S.timer);
+  }
+  document.querySelectorAll(".view").forEach(function(v){v.classList.remove("on");});
+  el("view-"+name).classList.add("on");
+  document.querySelectorAll(".tab").forEach(function(t){t.classList.toggle("on", t.dataset.view===name);});
+  window.scrollTo({top:0,behavior:"smooth"});
+  if(name==="wrong") renderWrong();
+  if(name==="stats") renderStats();
+  if(name==="setup") renderSetup();
+}
+function pad(n){return n<10?"0"+n:""+n;}
+function fmtTime(s){return pad(Math.floor(s/60))+":"+pad(s%60);}
+function catOf(q){return CATMAP[q.c]||{name:q.c,color:"#35e0d0"};}
+function refLabel(r){ return /^[0-9]/.test(r) ? "§ "+r : r; }
+
+/* ================= 设置页 ================= */
+function renderSetup(){
+  if(!QUESTIONS.length){ el("kTotal").textContent="0"; return; }
+  el("kTotal").textContent = QUESTIONS.length;
+  const totalTries = store.history.reduce(function(a,h){return a+h.n;},0);
+  el("kTry").textContent = totalTries;
+  const best = store.history.length?Math.max.apply(null, store.history.map(function(h){return Math.round(h.c/h.n*100);})):null;
+  el("kBest").textContent = best===null?"—":best+" 分";
+
+  const box = el("catChips");
+  box.innerHTML = "";
+  CATS.forEach(function(c){
+    const n = QUESTIONS.filter(function(q){return q.c===c.id;}).length;
+    if(!n) return;
+    const b = document.createElement("button");
+    b.className = "chip" + (ui.cats.indexOf(c.id)>=0?" on":"");
+    b.dataset.cat = c.id;
+    b.innerHTML = '<span class="dotc" style="--c:'+c.color+'"></span>'+c.name+' <span class="n">'+n+'</span>';
+    b.onclick = function(){
+      const i = ui.cats.indexOf(c.id);
+      if(i>=0) ui.cats.splice(i,1); else ui.cats.push(c.id);
+      persistSettings(); renderSetup();
+    };
+    box.appendChild(b);
+  });
+  el("catAll").textContent = ui.cats.length? "已选 "+ui.cats.length+" 类" : "未选 = 全部";
+  Array.prototype.forEach.call(el("diffChips").children, function(b){
+    b.classList.toggle("on", Number(b.dataset.diff)===ui.diff);
+    b.onclick = function(){ ui.diff = Number(b.dataset.diff); persistSettings(); renderSetup(); };
+  });
+  Array.prototype.forEach.call(el("countChips").children, function(b){
+    b.classList.toggle("on", Number(b.dataset.count)===ui.count);
+    b.onclick = function(){ ui.count = Number(b.dataset.count); persistSettings(); renderSetup(); };
+  });
+  Array.prototype.forEach.call(el("modeChips").children, function(b){
+    const key = b.dataset.opt;
+    b.classList.toggle("on", !!ui[key]);
+    b.onclick = function(){ ui[key] = !ui[key]; persistSettings(); renderSetup(); };
+  });
+  const n = buildPool().length;
+  el("poolHint").textContent = "当前筛选可抽 "+n+" 题";
+}
+function persistSettings(){
+  store.settings = {cats:ui.cats.slice(), diff:ui.diff, count:ui.count, shuffle:ui.shuffle, instant:ui.instant};
+  saveStore();
+}
+
+/* ================= 组卷 ================= */
+function buildPool(){
+  return QUESTIONS.filter(function(q){
+    if(ui.cats.length && ui.cats.indexOf(q.c)<0) return false;
+    if(ui.diff && q.d!==ui.diff) return false;
+    return true;
+  });
+}
+function sample(arr, n){
+  const a = arr.slice();
+  for(let i=a.length-1;i>0;i--){ const j = Math.floor(Math.random()*(i+1)); const t=a[i]; a[i]=a[j]; a[j]=t; }
+  return n>0 ? a.slice(0,n) : a;
+}
+function startQuiz(kind){
+  let pool;
+  if(kind==="last"){
+    const ids = (S.lastWrong||[]).slice();
+    pool = QUESTIONS.filter(function(q){return ids.indexOf(q.id)>=0;});
+    if(!pool.length){ alert("本轮没有错题。"); return; }
+    pool = sample(pool, 0);
+  }else if(kind==="wrong"){
+    const ids = store.wrong.slice();
+    pool = QUESTIONS.filter(function(q){return ids.indexOf(q.id)>=0;});
+    if(!pool.length){ alert("错题本是空的，先练几轮吧。"); return; }
+    pool = sample(pool, 0);
+  }else if(kind==="weak"){
+    const base = buildPool();
+    const acc = catAcc();
+    const order = base.slice().sort(function(p,q){
+      const ap = acc[p.c]&&acc[p.c].n>=5 ? acc[p.c].ok/acc[p.c].n : 0.5;
+      const aq = acc[q.c]&&acc[q.c].n>=5 ? acc[q.c].ok/acc[q.c].n : 0.5;
+      return ap-aq;
+    });
+    pool = sample(order.slice(0, Math.max(10, Math.ceil(order.length*0.5))), ui.count);
+  }else{
+    pool = buildPool();
+    if(!pool.length){ alert("当前筛选没有题目，放宽条件试试。"); return; }
+    if(ui.shuffle) pool = sample(pool, 0);
+    if(ui.count>0) pool = pool.slice(0, ui.count);
+  }
+  if(!pool.length){ alert("没有可练习的题。"); return; }
+
+  S.pool = pool; S.idx = 0; S.selected = []; S.submitted = false; S.correct = 0;
+  S.answers = []; S.t0 = Date.now(); S.running = true;
+  clearInterval(S.timer);
+  S.timer = setInterval(function(){
+    if(!S.running) return;
+    el("qTimer").textContent = fmtTime(Math.floor((Date.now()-S.t0)/1000));
+  }, 500);
+  el("qTimer").textContent = "00:00";
+  el("qAll").textContent = pool.length;
+  go("quiz");
+  renderQuestion();
+}
+
+/* ================= 答题页 ================= */
+function renderQuestion(){
+  const q = S.pool[S.idx];
+  S.selected = []; S.submitted = false;
+  el("qNow").textContent = S.idx+1;
+  el("qMeter").style.width = (S.idx/S.pool.length*100)+"%";
+  el("qScore").textContent = "✓ "+S.correct;
+  const c = catOf(q);
+  el("qMeta").innerHTML =
+    '<span class="pill cat" style="--c:'+c.color+'">'+c.name+'</span>'+
+    '<span class="pill d'+q.d+'">'+DIFF[q.d]+'</span>'+
+    (q.multi?'<span class="pill multi">多选</span>':'')+
+    (q.ref?'<span class="pill">'+refLabel(q.ref)+'</span>':'');
+  el("qText").textContent = q.q;
+  const box = el("qOpts"); box.innerHTML = "";
+  q.o.forEach(function(text,i){
+    const b = document.createElement("button");
+    b.className = "opt"; b.dataset.i = i;
+    b.innerHTML = '<span class="k">'+String.fromCharCode(65+i)+'</span><span class="t"></span>';
+    b.querySelector(".t").textContent = text;
+    b.onclick = function(){ toggleOption(i); };
+    box.appendChild(b);
+  });
+  const fb = el("feedback"); fb.className = "feedback"; fb.innerHTML = "";
+  el("btnSubmit").style.display = "";
+  el("btnSubmit").disabled = true;
+  el("btnNext").style.display = "none";
+  el("btnNext").textContent = (S.idx===S.pool.length-1) ? "查看结果 →" : "下一题 →";
+}
+function toggleOption(i){
+  if(S.submitted) return;
+  const q = S.pool[S.idx];
+  if(q.multi){
+    const k = S.selected.indexOf(i);
+    if(k>=0) S.selected.splice(k,1); else S.selected.push(i);
+  }else{
+    S.selected = [i];
+  }
+  S.selected.sort(function(a,b){return a-b;});
+  document.querySelectorAll("#qOpts .opt").forEach(function(b){
+    b.classList.toggle("sel", S.selected.indexOf(Number(b.dataset.i))>=0);
+  });
+  el("btnSubmit").disabled = S.selected.length===0;
+}
+function submitAnswer(){
+  if(S.submitted || !S.selected.length) return;
+  const q = S.pool[S.idx];
+  const ok = S.selected.length===q.a.length && S.selected.every(function(v,i){return v===q.a[i];});
+  S.submitted = true;
+  if(ok) S.correct++; else addWrong(q.id);
+  S.answers.push({q:q, chosen:S.selected.slice(), ok:ok});
+  el("qScore").textContent = "✓ "+S.correct;
+  if(!ui.instant){ nextQuestion(); return; }
+  el("btnSubmit").style.display = "none";
+  el("btnNext").style.display = "";
+  document.querySelectorAll("#qOpts .opt").forEach(function(b){
+    const i = Number(b.dataset.i);
+    b.classList.add("locked");
+    if(q.a.indexOf(i)>=0) b.classList.add("correct");
+    else if(S.selected.indexOf(i)>=0) b.classList.add("wrong");
+  });
+  const fb = el("feedback");
+  fb.className = "feedback on " + (ok?"ok":"no");
+  const letters = q.a.map(function(i){return String.fromCharCode(65+i);}).join("");
+  fb.innerHTML =
+    '<div class="fb-head">'+(ok?"✓ 正确":"✗ 答错")+
+      '<span class="fb-ans">标准答案：'+letters+(q.multi?"（多选）":"")+'</span></div>'+
+    '<p class="fb-exp"></p><div class="fb-ref"></div>';
+  fb.querySelector(".fb-exp").textContent = q.e;
+  if(q.ref) fb.querySelector(".fb-ref").textContent = "对应知识点总纲 "+refLabel(q.ref);
+}
+function nextQuestion(){
+  if(!S.submitted){ submitAnswer(); return; }
+  S.idx++;
+  if(S.idx>=S.pool.length){ finishQuiz(); return; }
+  renderQuestion();
+}
+function quitQuiz(){
+  if((S.idx>0 || S.answers.length) && !confirm("退出后本轮进度不保存，确定？")) return;
+  S.running = false; clearInterval(S.timer);
+  go("setup");
+}
+
+/* ================= 结算 ================= */
+function finishQuiz(){
+  S.running = false; clearInterval(S.timer);
+  const n = S.pool.length, c = S.correct, rate = n?Math.round(c/n*100):0;
+  const secs = Math.max(1, Math.round((Date.now()-S.t0)/1000));
+  store.history.unshift({t:Date.now(), n:n, c:c, sec:secs});
+  store.history = store.history.slice(0,50);
+  S.answers.forEach(function(a){
+    const cc = a.q.c;
+    store.cats[cc] = store.cats[cc] || {n:0, ok:0};
+    store.cats[cc].n++; if(a.ok) store.cats[cc].ok++;
+  });
+  saveStore();
+
+  el("ringScore").textContent = rate;
+  el("ring").style.setProperty("--p", rate);
+  let title, sub;
+  if(rate>=90){title="可以上场了";sub="保持这个状态，重点再过一遍错题与口径。";}
+  else if(rate>=75){title="基本扎实";sub="把错题按分类过一遍，尤其是「陷阱 · 口径」。";}
+  else if(rate>=60){title="还有漏洞";sub="建议先读总纲对应小节，再重练错题。";}
+  else {title="需要系统复习";sub="从「基础」难度开始，按分类逐个打通。";}
+  el("resTitle").textContent = title;
+  el("resSub").textContent = "共 "+n+" 题，答对 "+c+" 题，正确率 "+rate+"%，用时 "+fmtTime(secs)+"。";
+
+  const byCat = {};
+  S.answers.forEach(function(a){
+    const k = a.q.c; byCat[k] = byCat[k] || {n:0, ok:0, color:catOf(a.q).color, name:catOf(a.q).name};
+    byCat[k].n++; if(a.ok) byCat[k].ok++;
+  });
+  const bars = el("resCats"); bars.innerHTML = "";
+  CATS.forEach(function(cc){
+    const d = byCat[cc.id]; if(!d) return;
+    const p = Math.round(d.ok/d.n*100);
+    const row = document.createElement("div");
+    row.className = "catbar";
+    row.innerHTML = '<span class="nm">'+d.name+'</span>'+
+      '<span class="tr" style="--c:'+d.color+'"><i style="width:'+p+'%"></i></span>'+
+      '<span class="vl">'+d.ok+'/'+d.n+' · '+p+'%</span>';
+    bars.appendChild(row);
+  });
+
+  const wrongs = S.answers.filter(function(a){return !a.ok;});
+  S.lastWrong = wrongs.map(function(a){return a.q.id;});
+  el("resWrongN").textContent = wrongs.length? "（本轮错 "+wrongs.length+" 题）" : "（本轮全对）";
+  renderWrongCards(el("resWrong"), wrongs, false);
+  go("result");
+}
+
+/* ================= 错题 ================= */
+function addWrong(id){ if(store.wrong.indexOf(id)<0){ store.wrong.push(id); saveStore(); syncWrongN(); } }
+function removeWrong(id){ const i=store.wrong.indexOf(id); if(i>=0){ store.wrong.splice(i,1); saveStore(); syncWrongN(); } }
+function clearWrong(){ if(confirm("清空错题本？")){ store.wrong=[]; saveStore(); syncWrongN(); renderWrong(); } }
+function syncWrongN(){
+  const s = el("wrongN");
+  if(s) s.textContent = store.wrong.length? "（"+store.wrong.length+"）" : "";
+}
+function renderWrongCards(container, answers, withRemove){
+  container.innerHTML = "";
+  if(!answers.length){
+    container.innerHTML = '<div class="empty">没有错题。继续保持。</div>';
+    return;
+  }
+  answers.forEach(function(a){
+    const q = a.q, c = catOf(q);
+    const box = document.createElement("div");
+    box.className = "wq";
+    const letters = q.a.map(function(i){return String.fromCharCode(65+i);}).join("");
+    const your = a.chosen.length? a.chosen.map(function(i){return String.fromCharCode(65+i);}).join("") : "—";
+    box.innerHTML =
+      '<div class="meta"><span class="pill cat" style="--c:'+c.color+'">'+c.name+'</span>'+
+        '<span class="pill d'+q.d+'">'+DIFF[q.d]+'</span>'+
+        (q.ref?'<span class="pill">'+refLabel(q.ref)+'</span>':'')+'</div>'+
+      '<p class="stem"></p>'+
+      '<p class="ans">标准答案：'+letters+'　你的答案：'+your+'</p>'+
+      '<p class="exp"></p>';
+    box.querySelector(".stem").textContent = q.q;
+    box.querySelector(".exp").textContent = q.e;
+    if(withRemove){
+      const b = document.createElement("button");
+      b.className = "btn sm ghost"; b.textContent = "移出错题本"; b.style.marginTop = "8px";
+      b.onclick = function(){ removeWrong(q.id); renderWrong(); };
+      box.appendChild(b);
+    }
+    container.appendChild(box);
+  });
+}
+function renderWrong(){
+  const list = store.wrong.map(function(id){ return QUESTIONS[id]; }).filter(Boolean);
+  el("wrongLead").textContent = "当前错题 "+list.length+" 题（同一浏览器有效）。读完解析后，用自己的话复述一遍再重练。";
+  el("wrongCount").textContent = list.length? "共 "+list.length+" 题" : "";
+  renderWrongCards(el("wrongList"), list.map(function(q){return {q:q, chosen:[]};}), true);
+  syncWrongN();
+}
+
+/* ================= 统计 ================= */
+function catAcc(){ return store.cats; }
+function renderStats(){
+  const h = store.history;
+  const qn = h.reduce(function(a,x){return a+x.n;},0);
+  const qc = h.reduce(function(a,x){return a+x.c;},0);
+  el("stRuns").textContent = h.length;
+  el("stQ").textContent = qn;
+  el("stAcc").textContent = qn? Math.round(qc/qn*100)+"%" : "—";
+  el("stBest").textContent = h.length? Math.max.apply(null,h.map(function(x){return Math.round(x.c/x.n*100);}))+" 分" : "—";
+  const box = el("stCats"); box.innerHTML = "";
+  const acc = store.cats;
+  CATS.forEach(function(c){
+    const d = acc[c.id];
+    if(!d || !d.n) return;
+    const p = Math.round(d.ok/d.n*100);
+    const row = document.createElement("div");
+    row.className = "catbar";
+    row.innerHTML = '<span class="nm">'+c.name+'</span>'+
+      '<span class="tr" style="--c:'+c.color+'"><i style="width:'+p+'%"></i></span>'+
+      '<span class="vl">'+d.ok+'/'+d.n+' · '+p+'%</span>';
+    box.appendChild(row);
+  });
+  if(!box.children.length) box.innerHTML = '<div class="empty">还没有统计数据，先练一轮。</div>';
+  const tb = el("stTable");
+  tb.querySelectorAll("tr:not(:first-child)").forEach(function(r){r.remove();});
+  h.slice(0,12).forEach(function(x){
+    const tr = document.createElement("tr");
+    const d = new Date(x.t);
+    const t = d.getMonth()+1+"-"+d.getDate()+" "+pad(d.getHours())+":"+pad(d.getMinutes());
+    tr.innerHTML = "<td>"+t+"</td><td>"+x.n+"</td><td>"+x.c+"</td><td>"+
+      Math.round(x.c/x.n*100)+"%</td><td>"+fmtTime(x.sec)+"</td>";
+    tb.appendChild(tr);
+  });
+}
+function resetStats(){
+  if(!confirm("清空练习记录与分类统计？（错题本保留）")) return;
+  store.history=[]; store.cats={}; saveStore(); renderStats(); renderSetup();
+}
+
+/* ================= 键盘 ================= */
+document.addEventListener("keydown", function(e){
+  if(!el("view-quiz").classList.contains("on")) return;
+  if(e.key==="Escape"){ quitQuiz(); return; }
+  const q = S.pool[S.idx];
+  if(!q) return;
+  if(/^[1-9]$/.test(e.key)){
+    const i = Number(e.key)-1;
+    if(i<q.o.length){ e.preventDefault(); toggleOption(i); }
+    return;
+  }
+  if(/^[a-dA-D]$/.test(e.key)){
+    const i = e.key.toLowerCase().charCodeAt(0)-97;
+    if(i<q.o.length){ e.preventDefault(); toggleOption(i); }
+    return;
+  }
+  if(e.key==="Enter"){
+    e.preventDefault();
+    if(!S.submitted) submitAnswer(); else nextQuestion();
+  }
+});
+
+/* ================= 启动 ================= */
+(function init(){
+  syncWrongN();
+  if(QUESTIONS.length){
+    el("brandSub").textContent = "ISAC × AI · "+QUESTIONS.length+" 题";
+    el("footCount").textContent = "SEED 20261113 · "+QUESTIONS.length+" Q";
+  }
+  renderSetup();
+  if(!QUESTIONS.length){
+    el("qText").textContent = "题库为空";
+  }
+})();
+</script>
+</body>
+</html>
